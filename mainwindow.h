@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "client.h"
 #include <QMainWindow>
 #include <QFile>
 #include <QMessageBox>
@@ -104,6 +104,35 @@ private slots:
 
     void on_pushButton_RMPF_clicked();
 
+    void on_pushButton_ajouterC_clicked();
+
+    void on_pushButton_supprimerC_clicked();
+
+    void on_pushButton_modifierC_clicked();
+
+    void on_pushButton_chercherC_clicked();
+
+    void on_pushButton_triC_clicked();
+
+    void on_tableViewC_activated(const QModelIndex &index);
+
+    void on_pushButtonPDFC_clicked();
+
+    void on_pushButton_theme1C_clicked();
+
+    void on_pushButton_theme2C_clicked();
+
+    void on_pushButton_historiqueC_clicked();
+
+    void on_pushButton_ouvrirPDFC_clicked();
+
+
+    void on_pushButton_GC_clicked();
+
+    void on_pushButton_RPGF_2_clicked();
+
+    void on_pushButton_RMPF_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     login L;
@@ -111,6 +140,7 @@ private:
     GestionCommandes GC1;
     Historique H;
     QString role;
+    client Etmp ;
 
 };
 #endif // MAINWINDOW_H

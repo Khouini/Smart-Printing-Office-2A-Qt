@@ -24,6 +24,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_Classe_Compte->setValidator(new QRegExpValidator(QRegExp("[A-z]*")));
     ui->lineEdit_Recherche->setValidator(new QRegExpValidator(QRegExp("[A-z]*")));
     ui->tableViewHistorique->setModel(H.Afficher());
+    //Wahchi
+    ui->lineEdit_prenomC->setValidator(new QRegExpValidator(QRegExp("[A-z]*"))) ;
+    ui->lineEdit_nomC->setValidator(new QRegExpValidator(QRegExp("[A-z]*"))) ;
+    ui->lineEdit_emailC->setValidator(new QRegExpValidator(QRegExp("[a-z]{1,10}@[a-z]{1,10}\\.[a-z]{1,4}"))) ;
+    ui->lineEdit_idC->setValidator(new QIntValidator(0,9999,this));
+    ui->lineEdit_cinC->setValidator(new QIntValidator(0,19999999,this));
+    ui->tableViewC->setModel(Etmp.afficher())  ;
+    //end Wahchi
 }
 
 MainWindow::~MainWindow()
@@ -57,6 +65,8 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
                 ui->stackedWidget->setCurrentIndex(1);
             }else if (role=="FINANCE"){
                 ui->stackedWidget->setCurrentIndex(3);
+            }else if (role=="CLIENTS"){
+                ui->stackedWidget->setCurrentIndex(4);
             }
 
             }
@@ -628,6 +638,9 @@ void MainWindow::on_pushButton_GF_clicked()
 void MainWindow::on_pushButton_RPGF_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    ui->lineEdit_Username->setText("");
+    ui->lineEdit_Password->setText("");
+    ui->lineEdit_Username_mdp_oublie->setText("");
 }
 
 void MainWindow::on_pushButton_RMPF_clicked()
@@ -637,4 +650,287 @@ void MainWindow::on_pushButton_RMPF_clicked()
     }else{
         QMessageBox::critical(this, tr("Error::"), "Vous n'etes pas un admin pour visionner cette page");
     }
+}
+//Begin Wahchi
+void MainWindow::on_pushButton_ajouterC_clicked()
+{
+    // recuperation des info saisies
+    int id_client=ui->lineEdit_idC->text().toInt();
+    int cinn=ui->lineEdit_cinC->text().toInt();
+    QString nom=ui->lineEdit_nomC->text();
+    QString prenom=ui->lineEdit_prenomC->text();
+    QString email=ui->lineEdit_emailC->text();
+    QString sexe;
+    QString type_client;
+    QString operation=" ajout";
+    if (ui->radioButtonHommeC->isChecked()){
+        sexe = "Homme";
+    }
+    if (ui->radioButton_FemmeC->isChecked()){
+        sexe = "Femme";
+    }
+    if (ui->radioButton_VIPC->isChecked()){
+        type_client = "VIP";
+    }
+    if (ui->radioButton_FidelC->isChecked()){
+        type_client = "Fidele";
+    }
+    if (ui->radioButton_passageeC->isChecked()){
+        type_client = "Passager";
+    }
+    QString res1 = QString::number(id_client) ;
+    QString res2 = QString::number(cinn) ;
+    // objet client
+    client C(nom,prenom,email,sexe,type_client,id_client,cinn);
+    C.save(res1, res2, nom, prenom, email, sexe, type_client,operation);
+    bool test= C.ajouterclient();
+    // bool test2=C.controle_saisie_client(C) ;
+    if(test)   // si requete executée
+    {
+        ui->tableViewC->setModel(Etmp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("ajout effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+         }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                 QObject::tr("ajout NON effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+
+}
+}
+
+void MainWindow::on_pushButton_supprimerC_clicked()
+{
+    int id =ui->lineEdit_supprimer_C->text().toInt() ;
+    bool test= Etmp.supprimer(id);
+    int id_client=ui->lineEdit_idC->text().toInt();
+    int cinn=ui->lineEdit_cinC->text().toInt();
+    QString nom=ui->lineEdit_nomC->text();
+    QString prenom=ui->lineEdit_prenomC->text();
+    QString email=ui->lineEdit_emailC->text();
+    QString sexe;
+    QString type_client;
+    QString operation=" Delete";
+    QString res1 = QString::number(id_client) ;
+    QString res2 = QString::number(cinn) ;
+    client C(nom,prenom,email,sexe,type_client,id_client,cinn);
+    C.save(res1, res2, nom, prenom, email, sexe, type_client,operation);
+
+    if(test)   // si requete executée
+    {
+        ui->tableViewC->setModel(Etmp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("suppression effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+         }
+    else  {
+
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                 QObject::tr("suppression NON effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+
+          }
+
+}
+
+void MainWindow::on_pushButton_modifierC_clicked()
+{
+    // recuperation des info saisies
+    int id_client=ui->lineEdit_idC->text().toInt();
+    int cinn=ui->lineEdit_cinC->text().toInt();
+    QString nom=ui->lineEdit_nomC->text();
+    QString prenom=ui->lineEdit_prenomC->text();
+    QString email=ui->lineEdit_emailC->text();
+    QString sexe;
+    QString type_client;
+    QString operation=" modification";
+    if (ui->radioButtonHommeC->isChecked()){
+        sexe = "Homme";
+    }
+    if (ui->radioButton_FemmeC->isChecked()){
+        sexe = "Femme";
+    }
+    if (ui->radioButton_VIPC->isChecked()){
+        type_client = "VIP";
+    }
+    if (ui->radioButton_FidelC->isChecked()){
+        type_client = "Fidele";
+    }
+    if (ui->radioButton_passageeC->isChecked()){
+        type_client = "Passager";
+    }
+    QString res1 = QString::number(id_client) ;
+    QString res2 = QString::number(cinn) ;
+    // objet client
+    client C(nom,prenom,email,sexe,type_client,id_client,cinn);
+    bool test= C.modifierclient();
+    C.save(res1, res2, nom, prenom, email, sexe, type_client , operation);
+    if(test)   // si requete executée
+    {
+        ui->tableViewC->setModel(Etmp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("modification effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+         }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                 QObject::tr("modification NON effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+
+}
+}
+
+void MainWindow::on_pushButton_chercherC_clicked() //recherche
+{
+QString rech = ui->lineEdit_RC->text() ;
+ui->tableViewC->setModel(Etmp.rechercher(rech)) ;
+}
+
+void MainWindow::on_pushButton_triC_clicked()  //tri
+{
+    QString type ;
+    QString attribut ;
+    if (ui->radioButton_6AC->isChecked())
+    {  type="asc" ; }
+    if (ui->radioButton_6DC->isChecked())
+    {  type="desc" ; }
+
+    attribut = ui->comboBoxC->currentText();
+    ui->tableViewC->setModel(Etmp.tri(type,attribut))  ;
+
+
+
+}
+
+
+/* void MainWindow::on_tableViewC_2_activated(const QModelIndex &index) //table commande
+{
+
+} */
+
+void MainWindow::on_tableViewC_activated(const QModelIndex &index) // selection par id
+{
+    QString id=ui->tableViewC->model()->data(index).toString() ;
+
+
+    QSqlQuery query  ;
+
+    query.prepare("select * from CLIENTS where (ID_CLIENT LIKE '"+id+"')") ;
+    if (query.exec())
+    {
+        while (query.next()) {
+
+            ui->lineEdit_idC->setText(query.value(0).toString()) ;
+            ui->lineEdit_nomC->setText(query.value(1).toString()) ;
+            ui->lineEdit_prenomC->setText(query.value(2).toString()) ;
+            ui->lineEdit_emailC->setText(query.value(3).toString()) ;
+            ui->lineEdit_cinC->setText(query.value(4).toString()) ;
+            if ((query.value(5).toString() == "Homme"))
+            { ui->radioButtonHommeC->setChecked(1) ;  }
+            if ((query.value(5).toString() == "Femme"))
+            { ui->radioButton_FemmeC->setChecked(1) ;  }
+            if ((query.value(6).toString() == "VIP"))
+            { ui->radioButton_VIPC->setChecked(1) ;  }
+            if ((query.value(6).toString() == "Fidele"))
+            { ui->radioButton_FidelC->setChecked(1) ;  }
+            if ((query.value(6).toString() == "Passager"))
+            { ui->radioButton_passageeC->setChecked(1) ;  }
+
+        }
+    }
+        else {
+             QMessageBox::critical(this,tr("error::"),query.lastError().text()) ;
+               }
+
+}
+
+void MainWindow::on_pushButtonPDFC_clicked()  //button export pdf
+{
+   int cinn=ui->lineEdit_cinC->text().toInt();
+   int id_client=ui->lineEdit_idC->text().toInt();
+   QString email=ui->lineEdit_emailC->text();
+   QString nom=ui->lineEdit_nomC->text();
+   QString prenom=ui->lineEdit_prenomC->text();
+   QString sexe;
+   QString type_client;
+   if (ui->radioButtonHommeC->isChecked()){
+       sexe = "Homme";
+   }
+   if (ui->radioButton_FemmeC->isChecked()){
+       sexe = "Femme";
+   }
+   if (ui->radioButton_VIPC->isChecked()){
+       type_client = "VIP";
+   }
+   if (ui->radioButton_FidelC->isChecked()){
+       type_client = "Fidele";
+   }
+   if (ui->radioButton_passageeC->isChecked()){
+       type_client = "Passager";
+   }
+   client Etmp(nom,prenom,email,sexe,type_client,id_client,cinn);
+   Etmp.printPDF_client() ;
+
+}
+
+void MainWindow::on_pushButton_theme1C_clicked()
+{
+
+    QFile styleSheetFile("D:/Documents/GitHub/IntegrationQt/stylesheet/Darkeum.qss");
+    styleSheetFile.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String (styleSheetFile.readAll());
+    MainWindow::setStyleSheet(styleSheet);
+}
+
+void MainWindow::on_pushButton_theme2C_clicked()
+{
+    QFile styleSheetFile("D:/Documents/GitHub/IntegrationQt/stylesheet/Toolery.qss");
+    styleSheetFile.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String (styleSheetFile.readAll());
+    MainWindow::setStyleSheet(styleSheet);
+}
+
+void MainWindow::on_pushButton_historiqueC_clicked()
+{
+    QString link="file:///D:/Documents/GitHub/IntegrationQ/PDF/histo.txt";
+        QDesktopServices::openUrl(QUrl(link));
+}
+
+void MainWindow::on_pushButton_ouvrirPDFC_clicked()
+{
+    QString link="file:///D:/Documents/GitHub/IntegrationQ/PDF/client.pdf";
+        QDesktopServices::openUrl(QUrl(link));
+}
+
+//End Wahchi
+
+void MainWindow::on_pushButton_GC_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_pushButton_RPGF_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+        ui->lineEdit_Username->setText("");
+        ui->lineEdit_Password->setText("");
+        ui->lineEdit_Username_mdp_oublie->setText("");
+}
+
+void MainWindow::on_pushButton_RMPF_2_clicked()
+{
+    if (role == "ADMIN"){
+            ui->stackedWidget->setCurrentIndex(1);
+        }else{
+            QMessageBox::critical(this, tr("Error::"), "Vous n'etes pas un admin pour visionner cette page");
+        }
 }
