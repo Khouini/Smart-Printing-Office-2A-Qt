@@ -19,7 +19,9 @@ SOURCES += \
     client.cpp \
     comptes.cpp \
     connection.cpp \
+    fournisseurs.cpp \
     gestioncommandes.cpp \
+    histo.cpp \
     historique.cpp \
     login.cpp \
     mailing.cpp \
@@ -31,7 +33,9 @@ HEADERS += \
     client.h \
     comptes.h \
     connection.h \
+    fournisseurs.h \
     gestioncommandes.h \
+    histo.h \
     historique.h \
     login.h \
     mailing.h \

@@ -19,6 +19,26 @@
 #include <QTextStream>
 #include <QUrl>
 #include <QDesktopServices>
+#include "fournisseurs.h"
+#include "histo.h"
+#include <QPieSlice>
+#include <QPieSeries>
+#include <QtCharts/QChartView>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QLegend>
+#include <QtCharts>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QPrinter>
+#include <QtPrintSupport/QPrinter>
+#include <QPrintDialog>
+#include <QTextDocument>
+#include <QTextStream>
+#include <QLabel>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -133,6 +153,36 @@ private slots:
 
     void on_pushButton_RMPF_2_clicked();
 
+    void on_pushButton_Ajouter_F_clicked();
+
+    void on_pushButton_Supprimer_F_clicked();
+
+    void on_pushButton_Modifier_F_clicked();
+
+
+    void on_pushButton_F_clicked();
+
+    void on_pushButton_2_F_clicked();
+
+    void on_pushButton_chercher_F_clicked();
+
+    void on_pushButton_3_F_clicked();
+
+    void on_pushButton_4_F_clicked();
+void on_pushButton_Actualiser_F_clicked();
+
+    void on_pushButton_6_F_clicked();
+
+    void on_pb_image_F_clicked();
+
+
+
+    void on_pushButton_RPGF_3_clicked();
+
+    void on_pushButton_RMPF_3_clicked();
+
+    void on_pushButton_GF_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     login L;
@@ -141,6 +191,7 @@ private:
     Historique H;
     QString role;
     client Etmp ;
-
+    Fournisseurs FRN;
+    histo HF;
 };
 #endif // MAINWINDOW_H
