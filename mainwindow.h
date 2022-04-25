@@ -1,5 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "techniciens.h"
+#include <qrcode.h>
 #include "client.h"
 #include <QMainWindow>
 #include <QFile>
@@ -183,6 +185,37 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_GF_2_clicked();
 
+    void on_qrCode_clicked();
+
+
+    void on_pushButton_ajouter_maint_clicked();
+
+    void on_pushButton_Modifier_maint_clicked();
+
+    void on_pushButton_rech_maint_clicked();
+
+    void on_pushButton_supp_maint_clicked();
+
+    void on_pushButton_sombre_maint_clicked();
+
+    void on_pushButton_blanc_maint_clicked();
+
+    void on_pushButton_pdf_maint_clicked();
+
+    void on_pushButton_historique_maint_clicked();
+
+    void on_radioButton_idTri_maint_clicked();
+
+    void on_radioButton_nomTri_maint_clicked();
+
+    void on_QUITTER_maint_clicked();
+
+    void on_pushButton_GM_clicked();
+
+    void on_pushButton_RPGF_4_clicked();
+
+    void on_pushButton_RMPF_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     login L;
@@ -193,5 +226,7 @@ private:
     client Etmp ;
     Fournisseurs FRN;
     histo HF;
+    Techniciens Etmpi ;
+
 };
 #endif // MAINWINDOW_H

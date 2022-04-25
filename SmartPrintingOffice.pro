@@ -27,7 +27,9 @@ SOURCES += \
     mailing.cpp \
     main.cpp \
     mainwindow.cpp \
-    notifications.cpp
+    notifications.cpp \
+    qrcode.cpp \
+    techniciens.cpp
 
 HEADERS += \
     client.h \
@@ -40,7 +42,9 @@ HEADERS += \
     login.h \
     mailing.h \
     mainwindow.h \
-    notifications.h
+    notifications.h \
+    qrcode.h \
+    techniciens.h
 
 FORMS += \
     mainwindow.ui

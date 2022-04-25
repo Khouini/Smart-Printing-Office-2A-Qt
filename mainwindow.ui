@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2212,6 +2212,304 @@
             </item>
            </layout>
           </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_7">
+       <layout class="QVBoxLayout" name="verticalLayout_86">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_75">
+          <item>
+           <widget class="QPushButton" name="pushButton_RPGF_4">
+            <property name="text">
+             <string>Retour page connexion</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_RMPF_4">
+            <property name="text">
+             <string>Retour menu principale</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_28">
+          <property name="title">
+           <string>Gestion de maintenance</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_79">
+           <item>
+            <widget class="QTabWidget" name="tabWidget_2">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tab_9">
+              <attribute name="title">
+               <string>Ajout</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_80">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_72">
+                 <item>
+                  <widget class="QTableView" name="tableView_maint"/>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_81">
+                   <item>
+                    <widget class="QPushButton" name="QUITTER_maint">
+                     <property name="text">
+                      <string>Quitter</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="qrCode">
+                     <property name="text">
+                      <string>qr code</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_pdf_maint">
+                     <property name="text">
+                      <string>generer pdf</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_historique_maint">
+                     <property name="text">
+                      <string>historique</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_73">
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_29">
+                   <property name="title">
+                    <string>Recherche</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_82">
+                    <item>
+                     <layout class="QFormLayout" name="formLayout_5">
+                      <item row="1" column="1">
+                       <widget class="QPushButton" name="pushButton_rech_maint">
+                        <property name="text">
+                         <string>Rechercher</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_29">
+                        <property name="text">
+                         <string>ID</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_rech_maint"/>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_30">
+                   <property name="title">
+                    <string>supprimer technicien</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_83">
+                    <item>
+                     <layout class="QFormLayout" name="formLayout_6">
+                      <item row="1" column="1">
+                       <widget class="QPushButton" name="pushButton_supp_maint">
+                        <property name="text">
+                         <string>Supprimer</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_supp_maint"/>
+                      </item>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_30">
+                        <property name="text">
+                         <string>ID</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_31">
+                   <property name="title">
+                    <string>Tri</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_84">
+                    <item>
+                     <widget class="QRadioButton" name="radioButton_idTri_maint">
+                      <property name="text">
+                       <string>trier par id</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="radioButton_nomTri_maint">
+                      <property name="text">
+                       <string>trier par nom</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_32">
+                   <property name="title">
+                    <string>QR Code</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_85">
+                    <item>
+                     <widget class="QLabel" name="qr_code">
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_33">
+                 <property name="title">
+                  <string>Ajout</string>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_74">
+                  <item>
+                   <layout class="QFormLayout" name="formLayout_2">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_31">
+                      <property name="text">
+                       <string>ID</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="lineEdit_id_maint"/>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_32">
+                      <property name="text">
+                       <string>Nom</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="lineEdit_nom_maint"/>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_33">
+                      <property name="text">
+                       <string>Prénom</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLineEdit" name="lineEdit_prenom_maint"/>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLabel" name="label_34">
+                      <property name="text">
+                       <string>CIN</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="QLineEdit" name="lineEdit_cin_maint"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QFormLayout" name="formLayout_3">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_35">
+                      <property name="text">
+                       <string>Id tache</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="lineEdit_idtache_maint"/>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="lineEdit_num_maint"/>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_36">
+                      <property name="text">
+                       <string>Telephone</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_37">
+                      <property name="text">
+                       <string>Password</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLineEdit" name="lineEdit_Ps_maint"/>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLabel" name="label_38">
+                      <property name="text">
+                       <string>Email</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="QLineEdit" name="lineEdit_email_maint"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_ajouter_maint">
+                    <property name="text">
+                     <string>Ajouter</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_Modifier_maint">
+                    <property name="text">
+                     <string>Modifier</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
