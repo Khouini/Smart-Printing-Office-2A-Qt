@@ -149,7 +149,7 @@ QSqlQueryModel * Techniciens::recherche(QString rech)
 void Techniciens::printPDF()
 {
 
-    QPdfWriter pdf("C:/Users/Majd Tabessi/Desktop/ESPRIT2-2/projet c++/interfacefin MRIGEL/generer.pdf");
+    QPdfWriter pdf("D:/Documents/GitHub/IntegrationQt/PDF/maintenance.pdf");
     QPainter painter(&pdf);
     QFont font=painter.font();
     QMessageBox msgBox;
@@ -193,7 +193,7 @@ void Techniciens::printPDF()
 
 
 void Techniciens::save(int id,QString nom,QString prenom,int cin,int num,int idtache , QString EMAIL_EMPLOYEE , QString PASSWORD_EMPLOYEE)
-{    QFile file ("C:/Users/Majd Tabessi/Desktop/ESPRIT2-2/projet c++/interfacefin MRIGEL/histo.txt");
+{    QFile file ("D:/Documents/GitHub/IntegrationQt/Historique/historiqueTechneciens.txt");
      if (!file.open(QIODevice::WriteOnly|QIODevice::Append | QIODevice::Text))
       qDebug()<<"erreur";
      QTextStream out(&file);
@@ -217,7 +217,7 @@ void Techniciens::save(int id,QString nom,QString prenom,int cin,int num,int idt
 
 QString Techniciens::load()
 {   QString tmp="";
-    QFile file("C:/Users/Majd Tabessi/Desktop/ESPRIT2-2/projet c++/interfacefin MRIGEL/histo.txt");
+    QFile file("D:/Documents/GitHub/IntegrationQt/Historique/historiqueTechneciens.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
       tmp="";
 

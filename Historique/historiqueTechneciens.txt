@@ -1,0 +1,10 @@
+id: 1
+nom: 
+prenom: 
+cin: 0
+num: 0
+idtache: 0
+email: 
+password: 
+date: Tuesday 26 April 2022 22:08:09.502
+************************ 

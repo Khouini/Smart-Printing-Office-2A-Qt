@@ -77,7 +77,6 @@ private slots:
 
     void on_pushButton_Trier_clicked();
 
-    void on_pushButton_2_clicked();
 
     void on_pushButton_Chercher_2_clicked();
 
@@ -196,10 +195,7 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_supp_maint_clicked();
 
-    void on_pushButton_sombre_maint_clicked();
-
-    void on_pushButton_blanc_maint_clicked();
-
+    void on_pushButton_2_clicked();
     void on_pushButton_pdf_maint_clicked();
 
     void on_pushButton_historique_maint_clicked();
@@ -215,6 +211,12 @@ void on_pushButton_Actualiser_F_clicked();
     void on_pushButton_RPGF_4_clicked();
 
     void on_pushButton_RMPF_4_clicked();
+
+    void on_pushButton_APDFF_clicked();
+
+    void on_pushButton_RetourPC22_clicked();
+
+    void on_pushButton_PDFMAINT_clicked();
 
 private:
     Ui::MainWindow *ui;

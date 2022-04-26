@@ -253,6 +253,26 @@
            </spacer>
           </item>
           <item>
+           <widget class="QPushButton" name="pushButton_RetourPC22">
+            <property name="text">
+             <string>Retour Page connexion</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_23">
             <item>
              <spacer name="horizontalSpacer_11">
@@ -2042,6 +2062,13 @@
                   </layout>
                  </item>
                  <item>
+                  <widget class="QPushButton" name="pushButton_APDFF">
+                   <property name="text">
+                    <string>Afficher PDF</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QPushButton" name="pushButton_3_F">
                    <property name="text">
                     <string>PDF</string>
@@ -2270,6 +2297,13 @@
                     <widget class="QPushButton" name="qrCode">
                      <property name="text">
                       <string>qr code</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_PDFMAINT">
+                     <property name="text">
+                      <string>Afficher PDF</string>
                      </property>
                     </widget>
                    </item>

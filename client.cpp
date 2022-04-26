@@ -126,7 +126,7 @@ bool client::modifierclient(){
 }
 void client::printPDF_client()
 {
-    QPdfWriter pdf("D:/Documents/GitHub/Gestion-Fiance-Qt/comptes.pdf");
+    QPdfWriter pdf("D:/Documents/GitHub/IntegrationQt/PDF/clients.pdf");
     QPainter painter(&pdf);
     QFont font=painter.font();
     QMessageBox msgBox;
@@ -159,7 +159,7 @@ void client::printPDF_client()
            msgBox.exec();
 }
 void client::save(QString id,QString cinn , QString nom ,QString prenom , QString email ,QString sexe ,QString type_client , QString operation )
-{    QFile file ("D:/Documents/GitHub/IntegrationQ/PDF/histo.txt");
+{    QFile file ("D:/Documents/GitHub/IntegrationQt/Historique/hitoriqueClients.txt");
      if (!file.open(QIODevice::WriteOnly|QIODevice::Append | QIODevice::Text))
       qDebug()<<"erreur";
       QTextStream out(&file);
@@ -180,7 +180,7 @@ void client::save(QString id,QString cinn , QString nom ,QString prenom , QStrin
 }
 QString client::load()
 {  QString tmp="";
-    QFile file("D:/Documents/GitHub/IntegrationQ/PDF/histo.txt");
+    QFile file("D:/Documents/GitHub/IntegrationQt/Historique/hitoriqueClients.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
       tmp="";
 

@@ -547,13 +547,14 @@ void MainWindow::on_pushButton_clicked()
         QMessageBox::critical(this, tr("Error::"), query.lastError().text());
     }
     Comptes C(Numero, Nom, Classe, Type, solde);
+
     C.printPDF_comptes() ;
 
 }
 
 void MainWindow::on_pushButton_afficher_pdf_clicked()
 {
-    QString link="file:///D:/Documents/GitHub/Gestion-Fiance-Qt/comptes.pdf";
+    QString link="file:///D:/Documents/GitHub/IntegrationQt/PDF/comptes.pdf";
             QDesktopServices::openUrl(QUrl(link));
 }
 
@@ -927,13 +928,13 @@ void MainWindow::on_pushButton_theme2C_clicked()
 
 void MainWindow::on_pushButton_historiqueC_clicked()
 {
-    QString link="file:///D:/Documents/GitHub/IntegrationQ/PDF/histo.txt";
+    QString link="file:///D:/Documents/GitHub/IntegrationQt/Historique/hitoriqueClients.txt";
         QDesktopServices::openUrl(QUrl(link));
 }
 
 void MainWindow::on_pushButton_ouvrirPDFC_clicked()
 {
-    QString link="file:///D:/Documents/GitHub/IntegrationQ/PDF/client.pdf";
+    QString link="file:///D:/Documents/GitHub/IntegrationQt/PDF/clients.pdf";
         QDesktopServices::openUrl(QUrl(link));
 }
 
@@ -1225,7 +1226,7 @@ void MainWindow::on_pushButton_RPGF_3_clicked()
 
 void MainWindow::on_pushButton_RMPF_3_clicked()
 {
-    if (role == "FOURNISSEURS"){
+    if (role == "ADMIN"){
             ui->stackedWidget->setCurrentIndex(1);
         }else{
             QMessageBox::critical(this, tr("Error::"), "Vous n'etes pas un admin pour visionner cette page");
@@ -1366,26 +1367,6 @@ void MainWindow::on_pushButton_rech_maint_clicked()
 }
 
 
-//theme
-
-void MainWindow::on_pushButton_sombre_maint_clicked()
-{
-    QFile styleSheetFile("C:/Users/Majd Tabessi/Desktop/ESPRIT2-2/projet c++/Darkeum/Darkeum.qss");
-        styleSheetFile.open(QFile::ReadOnly);
-        QString styleSheet = QLatin1String (styleSheetFile.readAll());
-        MainWindow::setStyleSheet(styleSheet);
-}
-
-void MainWindow::on_pushButton_blanc_maint_clicked()
-{
-    QFile styleSheetFile("C:/Users/Majd Tabessi/Desktop/ESPRIT2-2/projet c++/BLANC/Integrid.qss");
-        styleSheetFile.open(QFile::ReadOnly);
-        QString styleSheet = QLatin1String (styleSheetFile.readAll());
-        MainWindow::setStyleSheet(styleSheet);
-}
-
-
-
 
 
 //generer pdf
@@ -1469,7 +1450,7 @@ void MainWindow::on_qrCode_clicked()
 
 void MainWindow::on_pushButton_historique_maint_clicked()
 {
-    QString link="file:///C:/Users/Majd Tabessi/Desktop/ESPRIT2-2/projet c++/interfacefin MRIGEL/histo.txt";
+    QString link="file:///D:/Documents/GitHub/IntegrationQt/Historique/historiqueTechneciens.txt";
         QDesktopServices::openUrl(QUrl(link));
 
 }
@@ -1503,4 +1484,24 @@ void MainWindow::on_pushButton_RMPF_4_clicked()
         }else{
             QMessageBox::critical(this, tr("Error::"), "Vous n'etes pas un admin pour visionner cette page");
         }
+}
+
+void MainWindow::on_pushButton_APDFF_clicked()
+{
+    QString link="file:///D:/Documents/GitHub/IntegrationQt/PDF/fournisseurs.pdf";
+        QDesktopServices::openUrl(QUrl(link));
+}
+
+void MainWindow::on_pushButton_RetourPC22_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->lineEdit_Username->setText("");
+    ui->lineEdit_Password->setText("");
+    ui->lineEdit_Username_mdp_oublie->setText("");
+}
+
+void MainWindow::on_pushButton_PDFMAINT_clicked()
+{
+    QString link="file:///D:/Documents/GitHub/IntegrationQt/PDF/maintenance.pdf";
+        QDesktopServices::openUrl(QUrl(link));
 }

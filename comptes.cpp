@@ -89,7 +89,7 @@ QSqlQueryModel * Comptes::rechercheID(QString rech){
 }
 void Comptes::printPDF_comptes()
 {
-    QPdfWriter pdf("D:/Documents/GitHub/Gestion-Fiance-Qt/comptes.pdf");
+    QPdfWriter pdf("D:/Documents/GitHub/IntegrationQt/PDF/comptes.pdf");
     QPainter painter(&pdf);
     QFont font=painter.font();
     QMessageBox msgBox;
@@ -101,7 +101,7 @@ void Comptes::printPDF_comptes()
            painter.drawText(300,800 , "Numero: ");
            painter.drawText(300,1600, "Nom: ");
            painter.drawText(300, 2400, "Classe: ");
-           painter.drawText(300, 3200,"Type: ");
+           painter.drawText(300, 3200, "Type: ");
            painter.drawText(300,4000,"Solde: ");
            painter.setPen(Qt::blue);
            painter.drawText(2100, 800, id);

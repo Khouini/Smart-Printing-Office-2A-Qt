@@ -1,0 +1,33 @@
+
+Operation effectuée:  modification
+ID: 3
+CIN: 45
+Nom: AZ
+Prenom: A
+Email: fez@gmail.com
+sexe: Femme
+type_client: VIP
+date: Tuesday 26 April 2022 21:50:49.689
+************************ 
+
+Operation effectuée:  modification
+ID: 3
+CIN: 45
+Nom: AZ
+Prenom: A
+Email: fez@gmail.com
+sexe: Femme
+type_client: VIP
+date: Tuesday 26 April 2022 21:53:06.134
+************************ 
+
+Operation effectuée:  modification
+ID: 1
+CIN: 3333
+Nom: KHOUINI
+Prenom: yACINE
+Email: fzez@gmail.com
+sexe: Homme
+type_client: Passager
+date: Tuesday 26 April 2022 21:55:18.955
+************************ 
