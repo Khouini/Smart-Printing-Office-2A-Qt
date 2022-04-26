@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>6</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2544,6 +2544,484 @@
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_8">
+       <layout class="QVBoxLayout" name="verticalLayout_96">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_77">
+          <item>
+           <widget class="QPushButton" name="pushButton_RPGF_5">
+            <property name="text">
+             <string>Retour page connexion</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_RMPF_5">
+            <property name="text">
+             <string>Retour menu principale</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="tabWidget_3">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="Tab_1A">
+           <attribute name="title">
+            <string>Gestion des employees</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_87">
+            <item>
+             <widget class="QGroupBox" name="groupBoxA">
+              <property name="title">
+               <string>Liste des employees</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_88">
+               <item>
+                <widget class="QTableView" name="tableViewA"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_76">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_12A">
+                <item>
+                 <widget class="QGroupBox" name="groupBox_4A">
+                  <property name="title">
+                   <string>Ajouter employe</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_89">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_10A">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_8A">
+                       <property name="spacing">
+                        <number>10</number>
+                       </property>
+                       <item>
+                        <layout class="QVBoxLayout" name="verticalLayoutA">
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayoutA">
+                           <property name="spacing">
+                            <number>50</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="labelA">
+                             <property name="text">
+                              <string>CIN</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_cinA">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_2A">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_2A">
+                             <property name="text">
+                              <string>Nom</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_nomA">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_3A">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_8A">
+                             <property name="text">
+                              <string>Prenom</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_prenomA">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="verticalLayout_9A">
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_9A">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_10A">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Adresse</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_adresseA">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_11A">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_13A">
+                             <property name="text">
+                              <string>Email</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_emailA">
+                             <property name="maximumSize">
+                              <size>
+                               <width>98</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_10A">
+                           <property name="spacing">
+                            <number>20</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_12A">
+                             <property name="text">
+                              <string>Type</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_2A">
+                             <property name="spacing">
+                              <number>1</number>
+                             </property>
+                             <item>
+                              <widget class="QRadioButton" name="radioButtonA">
+                               <property name="text">
+                                <string>Standard</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QRadioButton" name="radioButton_2A">
+                               <property name="text">
+                                <string>Technicien</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_16A">
+                       <item>
+                        <widget class="QPushButton" name="pushButton_ajouterA">
+                         <property name="enabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="text">
+                          <string>Ajouter</string>
+                         </property>
+                         <property name="autoDefault">
+                          <bool>false</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="pushButton_modifierA">
+                         <property name="text">
+                          <string>Modifier</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_8A">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>90</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Code promo et remise</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_90">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_13A">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_5A">
+                       <property name="spacing">
+                        <number>100</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="label_4A">
+                         <property name="text">
+                          <string>Code</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="lineEdit_cin_3A">
+                         <property name="maximumSize">
+                          <size>
+                           <width>10000</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButtonA">
+                       <property name="text">
+                        <string>Valider</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_91">
+                <item>
+                 <widget class="QGroupBox" name="groupBox_34">
+                  <property name="title">
+                   <string>Rcherche</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_92">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_7A">
+                     <item>
+                      <widget class="QLineEdit" name="lineEdit_2A">
+                       <property name="text">
+                        <string>CIN</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_4A">
+                       <property name="text">
+                        <string>Rechercher</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QGroupBox" name="groupBox_35">
+                  <property name="title">
+                   <string>Tri: </string>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_93">
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_6A">
+                     <item>
+                      <widget class="QComboBox" name="comboBoxA">
+                       <item>
+                        <property name="text">
+                         <string>Nom</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Prenom</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Cin</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_15A">
+                       <item>
+                        <widget class="QRadioButton" name="radioButton_5A">
+                         <property name="text">
+                          <string>ASC</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="radioButton_6A">
+                         <property name="text">
+                          <string>DESC</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_2A">
+                       <property name="text">
+                        <string>trier</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_94">
+                <item>
+                 <widget class="QGroupBox" name="groupBox_5A">
+                  <property name="maximumSize">
+                   <size>
+                    <width>170</width>
+                    <height>80</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Suprimer employe</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_95">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_6A">
+                     <property name="spacing">
+                      <number>30</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="label_5A">
+                       <property name="text">
+                        <string>CIN</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="lineEdit_cinsA">
+                       <property name="maximumSize">
+                        <size>
+                         <width>10000</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_supprimerA">
+                     <property name="text">
+                      <string>Suprimer</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_6A">
+                  <property name="text">
+                   <string>extraire pdf</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_7A">
+                  <property name="text">
+                   <string>check pdf</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_5A">
+                  <property name="text">
+                   <string>historiqure</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>

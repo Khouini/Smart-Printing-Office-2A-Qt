@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "employe.h"
 #include "techniciens.h"
 #include <qrcode.h>
 #include "client.h"
@@ -217,6 +218,27 @@ void on_pushButton_Actualiser_F_clicked();
     void on_pushButton_RetourPC22_clicked();
 
     void on_pushButton_PDFMAINT_clicked();
+    void on_pushButton_ajouterA_clicked();
+    void on_pushButton_supprimerA_clicked();
+    void on_pushButton_modifierA_clicked();
+    void on_pushButton_2A_clicked();
+
+
+    void on_pushButton_4A_clicked();
+
+    void on_pushButtonA_clicked();
+
+    void on_pushButton_6A_clicked();
+
+    void on_pushButton_7A_clicked();
+
+    void on_pushButton_5A_clicked();
+
+    void on_pushButton_RPGF_5_clicked();
+
+    void on_pushButton_RMPF_5_clicked();
+
+    void on_pushButton_GE_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -229,6 +251,8 @@ private:
     Fournisseurs FRN;
     histo HF;
     Techniciens Etmpi ;
+    employe em;
+
 
 };
 #endif // MAINWINDOW_H
