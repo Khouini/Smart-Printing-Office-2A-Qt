@@ -310,6 +310,10 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_qr_finance_clicked();
 
+    void on_pushButton_qr_four_clicked();
+
+    void on_pushButton_employe_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);

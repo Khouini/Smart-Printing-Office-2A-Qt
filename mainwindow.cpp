@@ -2378,3 +2378,86 @@ void MainWindow::on_pushButton_qr_finance_clicked()
 
       ui->qr_code_finance->setPixmap(QPixmap::fromImage(im));
 }
+
+void MainWindow::on_pushButton_qr_four_clicked()
+{
+    int tabeq=ui->tableViewAffichage_F->currentIndex().row();
+    QVariant idd=ui->tableViewAffichage_F->model()->data(ui->tableViewAffichage_F->model()->index(tabeq,0));
+    QString id=idd.toString();
+    // QString code=idd.toSTring();
+    QSqlQuery qry;
+    qry.prepare("select * from fournisseurs where id_fournisseur=:id");
+    qry.bindValue(":id",id);
+    qry.exec();
+     QString num, num_tel, produit, email, nom , date;//attributs
+    while(qry.next()){
+       id=qry.value(0).toString();
+       num_tel=qry.value(1).toString();
+       produit=qry.value(2).toString();
+        date=qry.value(3).toString();
+       email=qry.value(4).toString();
+        nom=qry.value(5).toString();
+    }
+    id=QString(id);
+  id= "ID_Compte: " +id+ " | num_tel :" +num_tel+ " | Nom produit : " +produit+ " | Date arrivage: " +date+ " | Email_fournisseur: " +email+ " | Nom_fournisseur: " +nom ;
+    QrCode qr = QrCode::encodeText(id.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+    // Read the black & white pixels
+    QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+    for (int y = 0; y < qr.getSize(); y++) {
+        for (int x = 0; x < qr.getSize(); x++) {
+            int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+            // You need to modify this part
+            if(color==0)
+                im.setPixel(x, y,qRgb(254, 254, 254));
+            else
+                im.setPixel(x, y,qRgb(0, 0, 0));
+        }
+    }
+    im=im.scaled(200,200);
+
+
+      ui->qr_code_four->setPixmap(QPixmap::fromImage(im));
+}
+
+void MainWindow::on_pushButton_employe_clicked()
+{
+    int tabeq=ui->tableViewA->currentIndex().row();
+        QVariant idd=ui->tableViewA->model()->data(ui->tableViewA->model()->index(tabeq,0));
+        QString id=idd.toString();
+       // QString code=idd.toSTring();
+        QSqlQuery qry;
+        qry.prepare("select * from EMPLOYE where CIN= :CIN");
+        qry.bindValue(":CIN",id);
+        qry.exec();
+         QString nom,adresse,prenom,email,cin, type;//attributs
+       while(qry.next()){
+           cin=qry.value(0).toString();
+           nom=qry.value(1).toString();
+           prenom=qry.value(2).toString();
+           email=qry.value(3).toString();
+           type=qry.value(4).toString();
+           adresse=qry.value(5).toString();
+        }
+        id=QString(id);
+      id="cin_EMPLOYEE: " +cin+ " | NOM_EMPLOYEE :" +nom+ " | adresse_EMPLOYEE: " +adresse+ " | email_EMPLOYEE:\t" +email+ " | TYPE_EMPLOYEE" +type+ " | prenom_EMPLOYEE: " +prenom  ;
+        QrCode qr = QrCode::encodeText(id.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+        // Read the black & white pixels
+        QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+        for (int y = 0; y < qr.getSize(); y++) {
+            for (int x = 0; x < qr.getSize(); x++) {
+                int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+                // You need to modify this part
+                if(color==0)
+                    im.setPixel(x, y,qRgb(254, 254, 254));
+                else
+                    im.setPixel(x, y,qRgb(0, 0, 0));
+            }
+        }
+        im=im.scaled(200,200);
+
+          ui->qr_code_employe->setPixmap(QPixmap::fromImage(im));
+}
