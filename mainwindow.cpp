@@ -2235,3 +2235,106 @@ void MainWindow::on_tableViewA_activated(const QModelIndex &index)
                  QMessageBox::critical(this,tr("error::"),query.lastError().text()) ;
                    }
 }
+
+void MainWindow::on_pushButton_statWahchi_clicked()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+                                 model->setQuery("select * from CLIENTS where TYPE_CLIENT like 'VIP'  ");
+
+                                 float VIP=model->rowCount();
+
+                                 model->setQuery("select * from CLIENTS where TYPE_CLIENT like 'Fidele' ");
+
+                                 float Fidele=model->rowCount();
+
+                                 model->setQuery("select * from CLIENTS where TYPE_CLIENT like 'Passager' ");
+
+                                 float Passager=model->rowCount();
+
+                                 float total=VIP+Fidele+Passager;
+
+
+
+                                 QString a=QString("VIP  "+QString::number((VIP*100)/total,'f',2)+"%" );
+
+                                 QString b=QString("Fidele  "+QString::number((Fidele*100)/total,'f',2)+"%" );
+
+                                 QString c=QString("Passager  "+QString::number((Passager*100)/total,'f',2)+"%" );
+
+
+
+                                 QPieSeries *series = new QPieSeries();
+
+                                 series->append(a,VIP);
+
+                                 series->append(b,Fidele);
+
+                                 series->append(c,Passager);
+
+
+
+
+
+                         if (VIP!=0)
+
+                         {QPieSlice *slice = series->slices().at(0); //pourcentage de chaque slice
+
+                          slice->setLabelVisible();
+
+                          slice->setPen(QPen());}
+
+                         if ( Fidele!=0)
+
+                         {
+
+                                  // Add label, explode and define brush for 2nd slice
+
+                                  QPieSlice *slice1 = series->slices().at(1);
+
+                                  //slice1->setExploded();
+
+                                  slice1->setLabelVisible();
+
+                         }
+
+                         if ( Passager!=0)
+
+                         {
+
+                                  // Add label, explode and define brush for 2nd slice
+
+                                  QPieSlice *slice2 = series->slices().at(2);
+
+                                  //slice2->setExploded();
+
+                                  slice2->setLabelVisible();
+
+                         }
+
+
+
+
+
+                                 // Create the chart widget
+
+                                 QChart *chart = new QChart();
+
+                                 // Add data to chart with title and hide legend
+
+                                 chart->addSeries(series);
+
+                                 chart->setTitle("Pourcentage Par TYPE_CLIENT :Nombre clients "+ QString::number(total));
+
+                                 chart->legend()->hide();
+
+                                 // Used to display the chart
+
+                                 QChartView *chartView = new QChartView(chart);
+
+                                 chartView->setRenderHint(QPainter::Antialiasing);
+
+                                 chartView->resize(1000,500);
+
+                                 chartView->show();
+}
