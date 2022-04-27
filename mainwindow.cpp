@@ -13,6 +13,25 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //Chatbox
+    QString date;
+    QString Conversation = ui->lineEdit_Conversation->text();
+    QString nickname, msgForTextEdit, text;
+    QSqlQuery querySelect;
+    querySelect.prepare("select  nickname, msg, TO_CHAR(date_sent, 'dy HH24:MI') from CHATBOX where conversation like "+Conversation+" order by date_sent;");
+    if (querySelect.exec()){
+        ui->textEdit->clear();
+        while (querySelect.next()){
+            nickname = querySelect.value(0).toString();
+            msgForTextEdit = querySelect.value(1).toString();
+            date = querySelect.value(2).toString();
+            text = date + "    " +  nickname + ": " + msgForTextEdit;
+            ui->textEdit->append(text);
+        }
+    }else{
+        QMessageBox::critical(this, tr("Error::"), querySelect.lastError().text());
+    }
+    //end chatbox
     ui->stackedWidget->setCurrentIndex(0);
     ui->lineEdit_Username->setText("");
     ui->lineEdit_Password->setText("");
@@ -101,7 +120,7 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
     QString UserName = ui->lineEdit_Username->text();
     QString Password = ui->lineEdit_Password->text();
     QSqlQuery querry;
-    querry.prepare("SELECT TYPE_USER FROM USERS WHERE USERNAME = '"+UserName+"' AND PASSWORD_USER = '"+Password+"'");
+    querry.prepare("SELECT TYPE_USER, USERNAME FROM USERS WHERE USERNAME = '"+UserName+"' AND PASSWORD_USER = '"+Password+"'");
     //querry.bindValue(":username", UserName);
     //querry.bindValue(":password", Password);
     if (querry.exec()){
@@ -109,7 +128,28 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
             while (querry.next()){
                 counter++;
                 role = querry.value(0).toString();
+                nickname = querry.value(1).toString();
             }
+            ui->lineEditidNickname->setText(nickname);
+            //Affichage chat
+            QString date;
+            QString Conversation = ui->lineEdit_Conversation->text();
+            QString nickname, msgForTextEdit, text;
+            QSqlQuery querySelect;
+            querySelect.prepare("select  nickname, msg, TO_CHAR(date_sent, 'dy HH24:MI') from CHATBOX where conversation like "+Conversation+" order by date_sent;");
+            if (querySelect.exec()){
+                ui->textEdit->clear();
+                while (querySelect.next()){
+                    nickname = querySelect.value(0).toString();
+                    msgForTextEdit = querySelect.value(1).toString();
+                    date = querySelect.value(2).toString();
+                    text = date + "    " +  nickname + ": " + msgForTextEdit;
+                    ui->textEdit->append(text);
+                }
+            }else{
+                QMessageBox::critical(this, tr("Error::"), querySelect.lastError().text());
+            }
+            // end affichage chat
             if (counter<1)
                 QMessageBox::critical(this, tr("Error::"), "Compte n'existe pas");
 
@@ -2024,4 +2064,58 @@ void MainWindow::on_pushButton_RMPF_6_clicked()
            QMessageBox::critical(this, tr("Error::"), "Vous n'etes pas un admin pour visionner cette page");
        }
 
+}
+
+void MainWindow::on_pushButton_cht_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_pushButton_cht_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_pushButton_cht_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_pushButton_cht_4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_pushButton_cht_5_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_pushButton_cht_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_pushButton_Retourrrr_clicked()
+{
+    if (role=="ADMIN"){
+        ui->stackedWidget->setCurrentIndex(1);
+    }else if (role=="FINANCE"){
+        ui->stackedWidget->setCurrentIndex(3);
+    }else if (role=="CLIENTS"){
+        ui->stackedWidget->setCurrentIndex(4);
+    }else if (role=="FOURNISSEURS"){
+        ui->stackedWidget->setCurrentIndex(5);
+    }else if (role=="MAINTENANCE"){
+        ui->stackedWidget->setCurrentIndex(6);
+    }else if (role=="EMOPLYEE"){
+        ui->stackedWidget->setCurrentIndex(7);
+    }else if (role=="STOCK"){
+        ui->stackedWidget->setCurrentIndex(8);
+    }
+}
+
+void MainWindow::on_pushButton_chatboxxxZE_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
 }

@@ -282,6 +282,22 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_RMPF_6_clicked();
 
+    void on_pushButton_cht_clicked();
+
+    void on_pushButton_cht_2_clicked();
+
+    void on_pushButton_cht_3_clicked();
+
+    void on_pushButton_cht_4_clicked();
+
+    void on_pushButton_cht_5_clicked();
+
+    void on_pushButton_cht_6_clicked();
+
+    void on_pushButton_Retourrrr_clicked();
+
+    void on_pushButton_chatboxxxZE_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);
@@ -292,7 +308,8 @@ private:
     Comptes Cmpt;
     GestionCommandes GC1;
     Historique H;
-    QString role;
+    QString role, nickname;
+
     client Etmp ;
     Fournisseurs FRN;
     histo HF;
