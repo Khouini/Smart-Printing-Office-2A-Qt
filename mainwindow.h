@@ -1,5 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "produit.h"
+#include <QVariant>
+
 #include "employe.h"
 #include "techniciens.h"
 #include <qrcode.h>
@@ -239,6 +242,49 @@ void on_pushButton_Actualiser_F_clicked();
     void on_pushButton_RMPF_5_clicked();
 
     void on_pushButton_GE_clicked();
+    void on_pushButton_10b_clicked();
+
+
+
+
+    void on_pushButton_supprimerb_clicked();
+
+    void on_pushButton_11b_clicked();
+
+    void on_radioButton_TRInProdb_clicked();
+
+    void on_radioButton_TRIqProdb_clicked();
+
+
+
+
+
+    void on_pushButton_3b_clicked();
+
+    //void on_pushButton_clicked();  // mawjouda
+
+    void on_pushButton_4_clicked();
+
+    void on_stock_clicked();
+
+    void on_cam_clicked();
+
+
+
+    void on_tableViewb_activated(const QModelIndex &index);
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButtonb_clicked();
+    void on_pushButton_GS_clicked();
+
+    void on_pushButton_RPGF_6_clicked();
+
+    void on_pushButton_RMPF_6_clicked();
+
+signals:
+void setCenter(QVariant, QVariant);
+void addMarker(QVariant, QVariant);
 
 private:
     Ui::MainWindow *ui;
@@ -252,6 +298,8 @@ private:
     histo HF;
     Techniciens Etmpi ;
     employe em;
+    produit pro;
+
 
 
 };

@@ -1,6 +1,6 @@
-QT       += core gui sql serialport printsupport network charts multimedia widgets concurrent
+QT       += core gui sql serialport printsupport network charts multimedia widgets concurrent multimediawidgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 CONFIG += c++11
 
@@ -29,6 +29,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     notifications.cpp \
+    produit.cpp \
     qrcode.cpp \
     techniciens.cpp
 
@@ -45,6 +46,7 @@ HEADERS += \
     mailing.h \
     mainwindow.h \
     notifications.h \
+    produit.h \
     qrcode.h \
     techniciens.h
 
@@ -58,3 +60,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     Quicksand-SemiBold.ttf
+
+RESOURCES += \
+    qml.qrc

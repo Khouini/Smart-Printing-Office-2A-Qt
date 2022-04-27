@@ -1,5 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#define NOM_RX "^([a-z]*|[A-Z]*)+$"
+#include <QQuickItem>
+#include <QDesktopServices>
+QRegExp rxNom(NOM_RX);
+
 using namespace qrcodegen;
 using namespace std;
 
@@ -57,6 +62,34 @@ MainWindow::MainWindow(QWidget *parent)
     //End Majd
     ui->lineEdit_cinA->setValidator(new QIntValidator(0,99999,this));
     ui->tableViewA->setModel(em.afficher());
+
+    //MAKRAM
+    ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
+    ui->quickWidget->show();
+
+    auto obj = ui->quickWidget->rootObject();
+    connect(this, SIGNAL(setCenter(QVariant, QVariant)), obj, SLOT(setCenter(QVariant, QVariant)));
+    connect(this, SIGNAL(addMarker(QVariant, QVariant)), obj, SLOT(addMarker(QVariant, QVariant)));
+
+    emit setCenter(25.000, 50.000);
+    emit addMarker(25.000, 50.000);
+
+
+
+
+
+    //*******
+
+  ui->tableViewb->setModel(pro.afficher())  ;//afficher
+    ui->lineEdit_idb->setValidator(new QIntValidator(0,99999,this));
+    QRegExpValidator*valiNom= new QRegExpValidator(rxNom,this);
+    ui->lineEdit_nomb->setValidator(valiNom);//nomajoutproduit//
+
+    ui->marqueb->setValidator(valiNom);
+    ui->lineEdit_referenceb->setValidator(valiNom);
+
+    ui->type->setValidator(valiNom);
+    //END MAKRAM
 }
 
 MainWindow::~MainWindow()
@@ -98,7 +131,10 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
                     ui->stackedWidget->setCurrentIndex(6);
                 }else if (role=="EMOPLYEE"){
                     ui->stackedWidget->setCurrentIndex(7);
+                }else if (role=="STOCK"){
+                    ui->stackedWidget->setCurrentIndex(8);
                 }
+
             }
             if (counter >1)
                 QMessageBox::critical(this, tr("Error::"), "Duplicate");
@@ -1698,4 +1734,294 @@ void MainWindow::on_pushButton_RMPF_5_clicked()
 void MainWindow::on_pushButton_GE_clicked()
 {
     ui->stackedWidget->setCurrentIndex(7);
+}
+// Debut Makram
+void MainWindow::on_pushButton_10b_clicked()
+{
+
+
+    int id_produit=ui->lineEdit_idb->text().toInt();
+    QString nom_produit=ui->lineEdit_nomb->text();
+    QString reference_produit =ui ->lineEdit_referenceb->text();
+     QString type =ui ->type->text();
+      QString marqueb =ui ->marqueb->text();
+       QString qteb =ui ->qteb->text();
+produit p(id_produit,nom_produit,reference_produit,type,marqueb,qteb);
+// fel fonction ajoutt
+p.save(id_produit,nom_produit,reference_produit,type,marqueb,qteb);
+bool test= p.ajouter();
+
+
+if (test)
+{
+ //   QMessageBox msg;
+ //   msg.setWindowTitle("Error");
+ //   msg.setIcon(QMessageBox::Critical);
+ //   msg.setText("Error: Something went wrong!");
+ //   msg.exec();
+    ui->tableViewb->setModel(pro.afficher());
+
+QMessageBox::information(nullptr,QObject::tr("ok"),
+                         QObject::tr("ajouter effectué\n"
+                                     "Click cancel to exit."),
+                        QMessageBox::Cancel);
+
+}
+else
+    QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                             QObject::tr("ajouter NON effectué\n"
+                                         "Click cancel to exit."),
+                            QMessageBox::Cancel);
+
+
+
+
+}
+
+void MainWindow::on_stock_clicked()
+{
+
+        produit p;
+     QString qnt=ui->qteb->text();
+   //int qnt;
+    bool test;
+    QSqlQuery qry;
+
+    qry.prepare("select qteb from produit  where  qteb = "+qnt+" ");
+    if (qry.exec()){
+        while (qry.next()){
+            qnt = (qry.value(0).toInt());
+            if (qnt > 10){
+                test = true;
+            }else{
+                test = false;
+            }
+        }
+    }
+        QMessageBox msgbox;
+        if (test){
+                ui->tableViewb->setModel(pro.afficher());
+                QMessageBox::information(nullptr, QObject::tr("***alert stock***"),
+                                      QObject::tr("Ce Produit est encore en stock"),
+                                      QMessageBox::Ok
+                                      );
+            }else{
+                QMessageBox::critical(nullptr, QObject::tr("***alert stock***"),
+                                      QObject::tr("Ce Produit nest plus en stock (stock<10)"),
+                                      QMessageBox::Cancel
+                                      );
+            }
+    }
+
+
+
+
+
+
+
+
+
+/*
+
+    //QString test2="55";
+     //int id_produit=ui->lineEdit_idb->text().toInt();
+    produit p;
+      bool test= p.alert();
+    if (test)
+    {
+        QMessageBox msg;
+      // msg.setWindowTitle("Error");
+       // msg.setIcon(QMessageBox::Critical);
+       // msg.setText("Error: Something went wrong!");
+       //msg.exec();
+        ui->tableViewb->setModel(pro.afficher());
+    QMessageBox::information(nullptr,QObject::tr("ok"),
+                             QObject::tr("stock effectué\n"
+                                         "Click cancel to exit."),
+                            QMessageBox::Cancel);
+
+
+
+}
+    else
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                 QObject::tr("stock NON effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+                                */
+
+
+
+
+
+
+
+void MainWindow::on_pushButton_supprimerb_clicked()
+{
+    int id =ui->lineEdit_supprimer_3b->text().toInt() ;
+    bool test= pro.supprimer(id);
+    if(test)   // si requete executée
+    {
+        ui->tableViewb->setModel(pro.afficher());
+
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("suppression effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+         }
+    else  {
+
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                 QObject::tr("suppression NON effectué\n"
+                                             "Click cancel to exit."),
+                                QMessageBox::Cancel);
+
+          }
+}
+
+
+
+void MainWindow::on_pushButton_11b_clicked()
+{
+    {
+
+        //
+
+        int id_produit=ui->lineEdit_idb->text().toInt();
+        QString nom_produit=ui->lineEdit_nomb->text();
+        QString reference_produit =ui ->lineEdit_referenceb->text();
+         QString type =ui ->type->text();
+          QString marqueb =ui ->marqueb->text();
+          QString qteb =ui ->qteb->text();
+          produit p(id_produit,nom_produit,reference_produit,type,marqueb,qteb);
+
+
+
+      bool test=p.modifier(id_produit);
+      if(test)
+    {
+         ui->tableViewb->setModel(pro.afficher());
+      //refresh
+    QMessageBox::information(nullptr, QObject::tr("modifier une agence"),
+                      QObject::tr("Agence modifié.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+    }
+      else
+          QMessageBox::critical(nullptr, QObject::tr("modifier une agence"),
+                      QObject::tr("Erreur !.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+    }
+
+}
+
+void MainWindow::on_radioButton_TRInProdb_clicked()
+{
+
+         ui->tableViewb->setModel((pro.trie_produitN()));
+
+}
+
+void MainWindow::on_radioButton_TRIqProdb_clicked()
+{
+  ui->tableViewb->setModel(pro.trie_produitQ());
+}
+
+
+
+
+void MainWindow::on_pushButton_3b_clicked()
+{
+    QString rech= ui->lineEdit_7b->text();
+    ui->tableViewb->setModel(pro.recherche(rech));
+
+}
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+
+
+        int id_produit=ui->lineEdit_idb->text().toInt();
+        QString nom_produit=ui->lineEdit_nomb->text();
+        QString reference_produit =ui ->lineEdit_referenceb->text();
+         QString type =ui ->type->text();
+          QString marqueb =ui ->marqueb->text();
+           QString qteb =ui ->qteb->text();
+       produit p(id_produit,nom_produit,reference_produit,type,marqueb,qteb);
+    p.printPDF_produit();
+}
+
+
+
+void MainWindow::on_tableViewb_activated(const QModelIndex &index)
+{
+
+
+
+        QSqlQuery query  ;
+       QString id_produit=ui->tableViewb->model()->data(index).toString() ;
+        query.prepare("select * from produit where (id_produit LIKE '"+id_produit+"')") ;
+        if (query.exec())
+        {
+            while (query.next()) {
+
+                ui->lineEdit_idb->setText(query.value(0).toString()) ;
+                ui->lineEdit_nomb->setText(query.value(1).toString()) ;
+                ui->lineEdit_referenceb->setText(query.value(2).toString()) ;
+                ui->type->setText(query.value(3).toString()) ;
+                ui->marqueb->setText(query.value(4).toString()) ;
+                ui->qteb->setText(query.value(5).toString()) ;
+            }
+        }
+            else {
+                 QMessageBox::critical(this,tr("error::"),query.lastError().text()) ;
+                   }
+
+}
+
+void MainWindow::on_cam_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+
+        QString link="file:///C:/Users/dell/Desktop/stock/produit.pdf";
+        QDesktopServices::openUrl(QUrl(link));
+
+}
+
+void MainWindow::on_pushButtonb_clicked()
+{
+    QString link="file:///C:/Users/dell/Desktop/stock/histo.txt";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+// End Makram
+
+void MainWindow::on_pushButton_GS_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(8);
+
+}
+
+void MainWindow::on_pushButton_RPGF_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->lineEdit_Username->setText("");
+    ui->lineEdit_Password->setText("");
+    ui->lineEdit_Username_mdp_oublie->setText("");
+}
+
+void MainWindow::on_pushButton_RMPF_6_clicked()
+{
+    if (role == "ADMIN"){
+           ui->stackedWidget->setCurrentIndex(1);
+       }else{
+           QMessageBox::critical(this, tr("Error::"), "Vous n'etes pas un admin pour visionner cette page");
+       }
+
 }
