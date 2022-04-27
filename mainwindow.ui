@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -3485,14 +3485,14 @@
                  <item>
                   <widget class="QLabel" name="label_24">
                    <property name="text">
-                    <string>Conversation</string>
+                    <string>Conversation: </string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_Conversation">
-                   <property name="text">
-                    <string>1</string>
+                  <widget class="QSpinBox" name="lineEdit_Conversation">
+                   <property name="value">
+                    <number>1</number>
                    </property>
                   </widget>
                  </item>

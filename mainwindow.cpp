@@ -2466,7 +2466,7 @@ void MainWindow::on_pushButton_codepromo_clicked()
         QMessageBox::critical(this, tr("Error::"), querySelect.lastError().text());
     }
     QSqlQuery query;
-    query.prepare("update commandes set total = total - "+price_discount+" where id_commande like "+id+" ");
+    query.prepare("update commandes set total = (total - (total * "+price_discount+" / 100)) where id_commande like "+id+" ");
     if (query.exec()){
             ui->tableViewCommandes_2->setModel(GC1.afficherCommandes2());
             QMessageBox::information(nullptr, QObject::tr("Database is open"),
