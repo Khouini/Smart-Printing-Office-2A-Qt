@@ -2119,3 +2119,44 @@ void MainWindow::on_pushButton_chatboxxxZE_clicked()
 {
     ui->stackedWidget->setCurrentIndex(9);
 }
+
+void MainWindow::on_pushButton_QRCODEC_clicked()
+{
+    int tabeq=ui->tableViewC->currentIndex().row();
+    QVariant idd=ui->tableViewC->model()->data(ui->tableViewC->model()->index(tabeq,0));
+    QString id=idd.toString();
+   // QString code=idd.toSTring();
+    QSqlQuery qry;
+    qry.prepare("select * from CLIENTS where ID_CLIENT=:id");
+    qry.bindValue(":id",id);
+    qry.exec();
+     QString nom,prenom,email,idC;//attributs
+     QString cin ;
+   while(qry.next()){
+       idC=qry.value(0).toString();
+       nom=qry.value(1).toString();
+       prenom=qry.value(2).toString();
+       cin=qry.value(4).toString();
+       email=qry.value(3).toString();
+    }
+    id=QString(id);
+  id= "ID_CLIENT: " +id+ " NOM_CLIENT :" +nom+ " PRENOM_CLIENT: " +prenom+ " CIN_CLIENT: " +cin+ " EMAIL_CLIENT: " +email  ;
+    QrCode qr = QrCode::encodeText(id.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+    // Read the black & white pixels
+    QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+    for (int y = 0; y < qr.getSize(); y++) {
+        for (int x = 0; x < qr.getSize(); x++) {
+            int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+            // You need to modify this part
+            if(color==0)
+                im.setPixel(x, y,qRgb(254, 254, 254));
+            else
+                im.setPixel(x, y,qRgb(0, 0, 0));
+        }
+    }
+    im=im.scaled(200,200);
+
+      ui->qr_code_C->setPixmap(QPixmap::fromImage(im));
+}

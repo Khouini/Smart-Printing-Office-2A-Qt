@@ -31,3 +31,25 @@ sexe: Homme
 type_client: Passager
 date: Tuesday 26 April 2022 21:55:18.955
 ************************ 
+
+Operation effectuée:  ajout
+ID: 4
+CIN: 3333
+Nom: prenom
+Prenom: nom
+Email: mail
+sexe: Femme
+type_client: Fidele
+date: Wednesday 27 April 2022 15:45:34.179
+************************ 
+
+Operation effectuée:  ajout
+ID: 6
+CIN: 3333
+Nom: prenom
+Prenom: nom
+Email: mail
+sexe: Femme
+type_client: Fidele
+date: Wednesday 27 April 2022 15:45:39.967
+************************ 

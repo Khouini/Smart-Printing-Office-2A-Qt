@@ -298,6 +298,8 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_chatboxxxZE_clicked();
 
+    void on_pushButton_QRCODEC_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);

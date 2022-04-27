@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>8</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1493,7 +1493,7 @@
            <attribute name="title">
             <string>Gestion des clients</string>
            </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_52">
+           <layout class="QVBoxLayout" name="verticalLayout_107">
             <item>
              <widget class="QGroupBox" name="groupBoxC">
               <property name="title">
@@ -1507,7 +1507,7 @@
              </widget>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_49">
+             <layout class="QHBoxLayout" name="horizontalLayout_90">
               <item>
                <widget class="QGroupBox" name="groupBox_2C">
                 <property name="title">
@@ -1772,34 +1772,61 @@
                </layout>
               </item>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_65">
+               <layout class="QVBoxLayout" name="verticalLayout_67">
                 <item>
-                 <widget class="QGroupBox" name="groupBox_9C">
-                  <property name="title">
-                   <string>supprimer un compte</string>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_66">
-                   <item>
-                    <widget class="QLineEdit" name="lineEdit_supprimer_C">
-                     <property name="text">
-                      <string>id_client</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_supprimerC">
-                     <property name="text">
-                      <string>supprimer</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout_89">
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_9C">
+                    <property name="title">
+                     <string>supprimer un compte</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_66">
+                     <item>
+                      <widget class="QLineEdit" name="lineEdit_supprimer_C">
+                       <property name="text">
+                        <string>id_client</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_supprimerC">
+                       <property name="text">
+                        <string>supprimer</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_36">
+                    <property name="title">
+                     <string>QRcode</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_52">
+                     <item>
+                      <widget class="QLabel" name="qr_code_C">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_QRCODEC">
+                       <property name="text">
+                        <string>Afficher</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_67">
+                 <layout class="QVBoxLayout" name="verticalLayout_65">
                   <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_59">
+                   <layout class="QHBoxLayout" name="horizontalLayout_49">
                     <item>
                      <widget class="QPushButton" name="pushButtonPDFC">
                       <property name="text">
@@ -1817,11 +1844,22 @@
                    </layout>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButton_historiqueC">
-                    <property name="text">
-                     <string>Check historique</string>
-                    </property>
-                   </widget>
+                   <layout class="QHBoxLayout" name="horizontalLayout_59">
+                    <item>
+                     <widget class="QPushButton" name="pushButton_historiqueC">
+                      <property name="text">
+                       <string>Check historique</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_statWahchi">
+                      <property name="text">
+                       <string>Statistique</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </item>
