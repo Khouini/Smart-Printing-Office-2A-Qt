@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -548,13 +548,13 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="currentIndex">
-           <number>4</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
             <string>Gestion des comptes</string>
            </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_26">
+           <layout class="QVBoxLayout" name="verticalLayout_109">
             <item>
              <widget class="QGroupBox" name="groupBox_5">
               <property name="title">
@@ -871,54 +871,85 @@
                </layout>
               </item>
               <item>
-               <widget class="QGroupBox" name="groupBox_16">
-                <property name="title">
-                 <string>Exportation PDF</string>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_46">
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_31">
-                   <item>
-                    <widget class="QLabel" name="label_20">
-                     <property name="text">
-                      <string>Numéro:  </string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QComboBox" name="comboBox_pdf_id"/>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton">
-                   <property name="text">
-                    <string>Exporter PDF</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_afficher_pdf">
-                   <property name="text">
-                    <string>Afficher PDF</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_3">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_45">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_26">
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_16">
+                    <property name="title">
+                     <string>Exportation PDF</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_46">
+                     <item>
+                      <layout class="QHBoxLayout" name="horizontalLayout_31">
+                       <item>
+                        <widget class="QLabel" name="label_20">
+                         <property name="text">
+                          <string>Numéro:  </string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QComboBox" name="comboBox_pdf_id"/>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton">
+                       <property name="text">
+                        <string>Exporter PDF</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_afficher_pdf">
+                       <property name="text">
+                        <string>Afficher PDF</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_37">
+                    <property name="title">
+                     <string>QRcode</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_108">
+                     <item>
+                      <widget class="QLabel" name="qr_code_finance">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_qr_finance">
+                       <property name="text">
+                        <string>Afficher</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
               </item>
               <item>
                <spacer name="horizontalSpacer_5">
@@ -1389,12 +1420,6 @@
              </layout>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="tab_5">
-           <attribute name="title">
-            <string>Chat</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_45"/>
           </widget>
           <widget class="QWidget" name="tab_6">
            <attribute name="title">

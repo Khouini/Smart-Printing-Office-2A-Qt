@@ -308,6 +308,8 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_statWahchi_clicked();
 
+    void on_pushButton_qr_finance_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);
