@@ -2160,3 +2160,78 @@ void MainWindow::on_pushButton_QRCODEC_clicked()
 
       ui->qr_code_C->setPixmap(QPixmap::fromImage(im));
 }
+
+void MainWindow::on_tableViewAffichage_F_activated(const QModelIndex &index)
+{
+    QString id=ui->tableViewAffichage_F->model()->data(index).toString() ;
+
+
+            QSqlQuery query  ;
+
+            query.prepare("select * from FOURNISSEURS where (ID_FOURNISSEUR LIKE '"+id+"')") ;
+            if (query.exec())
+            {
+                while (query.next()) {
+                    ui->lineEdit_id_F->setText(query.value(0).toString()) ;
+                    ui->lineEdit_tel_F->setText(query.value(1).toString()) ;
+                    ui->lineEdit_produit_F->setText(query.value(2).toString()) ;
+                    ui->lineEdit_email_2_F->setText(query.value(3).toString()) ;
+                    ui->lineEdit_email_F->setText(query.value(4).toString()) ;
+                    ui->lineEdit_nom_F->setText(query.value(5).toString()) ;
+
+                }
+            }
+                else {
+                     QMessageBox::critical(this,tr("error::"),query.lastError().text()) ;
+                       }
+}
+
+void MainWindow::on_tableView_maint_activated(const QModelIndex &index)
+{
+    QString id=ui->tableView_maint->model()->data(index).toString() ;
+            QSqlQuery query  ;
+            query.prepare("select * from EMPLOYEES where (ID_EMPLOYEE LIKE '"+id+"')") ;
+            if (query.exec())
+            {
+                while (query.next()) {
+
+                    ui->lineEdit_id_maint->setText(query.value(0).toString()) ;
+                    ui->lineEdit_nom_maint->setText(query.value(1).toString()) ;
+                    ui->lineEdit_prenom_maint->setText(query.value(2).toString()) ;
+                    ui->lineEdit_cin_maint->setText(query.value(3).toString()) ;
+                    ui->lineEdit_email_maint->setText(query.value(4).toString()) ;
+                    ui->lineEdit_Ps_maint->setText(query.value(5).toString()) ;
+                    ui->lineEdit_num_maint->setText(query.value(13).toString()) ;
+                    ui->lineEdit_idtache_maint->setText(query.value(10).toString()) ;
+
+                }
+            }
+                else {
+                     QMessageBox::critical(this,tr("error::"),query.lastError().text()) ;
+                       }
+}
+
+void MainWindow::on_tableViewA_activated(const QModelIndex &index)
+{
+    QString cin=ui->tableViewA->model()->data(index).toString() ;
+        QSqlQuery query  ;
+        query.prepare("select * from EMPLOYE where (CIN LIKE '"+cin+"')") ;
+        if (query.exec())
+        {
+            while (query.next()) {
+
+                ui->lineEdit_cinA->setText(query.value(0).toString()) ;
+                ui->lineEdit_nomA->setText(query.value(1).toString()) ;
+                ui->lineEdit_adresseA->setText(query.value(2).toString()) ;
+                ui->lineEdit_emailA->setText(query.value(3).toString()) ;
+                if ((query.value(4).toString() == "standard"))
+                { ui->radioButtonA->setChecked(1) ;  }
+                if ((query.value(4).toString() == "technicien"))
+                { ui->radioButton_2A->setChecked(1) ;  }
+                ui->lineEdit_prenomA->setText(query.value(5).toString()) ;
+            }
+        }
+            else {
+                 QMessageBox::critical(this,tr("error::"),query.lastError().text()) ;
+                   }
+}

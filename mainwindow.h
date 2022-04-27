@@ -300,6 +300,12 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_QRCODEC_clicked();
 
+    void on_tableViewAffichage_F_activated(const QModelIndex &index);
+
+    void on_tableView_maint_activated(const QModelIndex &index);
+
+    void on_tableViewA_activated(const QModelIndex &index);
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);
