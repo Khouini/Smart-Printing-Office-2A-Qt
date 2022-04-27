@@ -14,23 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     //Chatbox
-    QString date;
-    QString Conversation = ui->lineEdit_Conversation->text();
-    QString nickname, msgForTextEdit, text;
-    QSqlQuery querySelect;
-    querySelect.prepare("select  nickname, msg, TO_CHAR(date_sent, 'dy HH24:MI') from CHATBOX where conversation like "+Conversation+" order by date_sent;");
-    if (querySelect.exec()){
-        ui->textEdit->clear();
-        while (querySelect.next()){
-            nickname = querySelect.value(0).toString();
-            msgForTextEdit = querySelect.value(1).toString();
-            date = querySelect.value(2).toString();
-            text = date + "    " +  nickname + ": " + msgForTextEdit;
-            ui->textEdit->append(text);
-        }
-    }else{
-        QMessageBox::critical(this, tr("Error::"), querySelect.lastError().text());
-    }
     //end chatbox
     ui->stackedWidget->setCurrentIndex(0);
     ui->lineEdit_Username->setText("");
@@ -41,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableViewCommande1->setModel(GC1.afficherCommandes1());
     ui->tableViewCommandes_2->setModel(GC1.afficherCommandes2());
     ui->comboBox_Commandes_id->setModel(GC1.afficherComboBoxCommandes());
+    ui->comboBox_codepromoid->setModel(GC1.afficherComboBoxCommandes());
+    ui->comboBox_codepromo->setModel(GC1.afficherComboBoxCodePromo());
     ui->comboBox_compte_id->setModel(GC1.afficherComboBoxCompte());
     ui->comboBox_n_compte->setModel(GC1.afficherComboBoxCompte2());
     ui->comboBox_pdf_id->setModel(Cmpt.afficherIdPDFComboBox());
@@ -455,6 +440,8 @@ void MainWindow::on_pushButton_actualier_2_clicked()
     ui->comboBox_Commandes_id->setModel(GC1.afficherComboBoxCommandes());
     ui->comboBox_compte_id->setModel(GC1.afficherComboBoxCompte());
     ui->comboBox_pdf_id->setModel(Cmpt.afficherIdPDFComboBox());
+    ui->comboBox_codepromoid->setModel(GC1.afficherComboBoxCommandes());
+    ui->comboBox_codepromo->setModel(GC1.afficherComboBoxCodePromo());
 }
 
 void MainWindow::on_pushButton_valider_etablissement_clicked()
@@ -2460,4 +2447,34 @@ void MainWindow::on_pushButton_employe_clicked()
         im=im.scaled(200,200);
 
           ui->qr_code_employe->setPixmap(QPixmap::fromImage(im));
+}
+
+void MainWindow::on_pushButton_codepromo_clicked()
+{
+    QString id = ui->comboBox_codepromoid->currentText();
+    QString code = ui->comboBox_codepromo->currentText();
+
+    QString price_discount;
+    QSqlQuery querySelect;
+    querySelect.prepare("select price_discount from codepromo where code like '"+code+"'");
+    if (querySelect.exec()){
+        ui->textEdit->clear();
+        while (querySelect.next()){
+            price_discount = querySelect.value(0).toString();
+        }
+    }else{
+        QMessageBox::critical(this, tr("Error::"), querySelect.lastError().text());
+    }
+    QSqlQuery query;
+    query.prepare("update commandes set total = total - "+price_discount+" where id_commande like "+id+" ");
+    if (query.exec()){
+            ui->tableViewCommandes_2->setModel(GC1.afficherCommandes2());
+            QMessageBox::information(nullptr, QObject::tr("Database is open"),
+                                  QObject::tr("Manipulation effectué"),
+                                  QMessageBox::Ok
+                                  );
+            ui->tableViewCommande1->setModel(GC1.afficherCommandes1());
+        }else{
+        QMessageBox::critical(this, tr("Error::"), query.lastError().text());
+    }
 }

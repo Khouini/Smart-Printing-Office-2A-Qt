@@ -48,3 +48,13 @@ email: email
 password: pwd
 date: Wednesday 27 April 2022 01:13:43.298
 ************************ 
+id: 3
+nom: NOM
+prenom: PRENOM
+cin: 144
+num: 94
+idtache: 1
+email: MAIL
+password: PASS
+date: Wednesday 27 April 2022 19:01:29.685
+************************ 

@@ -20,6 +20,8 @@ public:
     QSqlQueryModel * afficherComboBoxCommandes();
     QSqlQueryModel * afficherComboBoxCompte();
     QSqlQueryModel * afficherComboBoxCompte2();
+    QSqlQueryModel * afficherComboBoxCodePromo();
+
 };
 
 #endif // GESTIONCOMMANDES_H

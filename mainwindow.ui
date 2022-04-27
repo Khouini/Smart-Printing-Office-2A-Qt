@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>7</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -548,7 +548,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
@@ -1055,6 +1055,50 @@
                     </widget>
                    </item>
                   </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_46">
+                <property name="title">
+                 <string>Code Promo</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_113">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_92">
+                   <item>
+                    <widget class="QLabel" name="label_45">
+                     <property name="text">
+                      <string>Code Promo: </string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_codepromo"/>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_93">
+                   <item>
+                    <widget class="QLabel" name="label_46">
+                     <property name="text">
+                      <string>ID Commande: </string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_codepromoid"/>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_codepromo">
+                   <property name="text">
+                    <string>Valider</string>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </widget>

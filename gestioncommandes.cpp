@@ -9,7 +9,7 @@ GestionCommandes::GestionCommandes(int id_compte, int id_commande){
 }
 QSqlQueryModel * GestionCommandes::afficherCommandes1(){
     QSqlQueryModel * model = new QSqlQueryModel();
-    model->setQuery("SELECT commandes.id_commande, commandes.PJ, comptes.N_compte, comptes.nom_compte, comptes.type_compte, comptes.solde_compte FROM commandes JOIN comptes ON commandes.n_compte = comptes.n_compte;");
+    model->setQuery("SELECT commandes.id_commande, commandes.PJ, commandes.TOTAL , comptes.N_compte, comptes.nom_compte, comptes.type_compte, comptes.solde_compte FROM commandes JOIN comptes ON commandes.n_compte = comptes.n_compte;");
     return model;
 }
 QSqlQueryModel * GestionCommandes::afficherCommandes2(){
@@ -57,5 +57,10 @@ QSqlQueryModel * GestionCommandes::trierCommandes2(QString type_tri, QString tri
 QSqlQueryModel * GestionCommandes::recherche2(QString rech){
     QSqlQueryModel * model = new QSqlQueryModel();
     model->setQuery("SELECT commandes.id_commande,comptes.N_compte, comptes.nom_compte, comptes.type_compte, comptes.solde_compte FROM commandes JOIN comptes ON commandes.n_compte = comptes.n_compte where (commandes.ID_COMMANDE) LIKE '%"+rech+"%' OR (comptes.NOM_COMPTE) LIKE '%"+rech+"%' OR (comptes.CLASSE_COMPTE) LIKE '%"+rech+"%' OR (comptes.TYPE_COMPTE) LIKE '%"+rech+"%' OR (comptes.SOLDE_COMPTE) LIKE '%"+rech+"%' ");
+    return model;
+}
+QSqlQueryModel * GestionCommandes::afficherComboBoxCodePromo(){
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("select code from codepromo;");
     return model;
 }

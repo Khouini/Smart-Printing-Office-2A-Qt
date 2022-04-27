@@ -314,6 +314,8 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_employe_clicked();
 
+    void on_pushButton_codepromo_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);
