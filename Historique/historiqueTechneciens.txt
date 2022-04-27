@@ -8,3 +8,43 @@ email:
 password: 
 date: Tuesday 26 April 2022 22:08:09.502
 ************************ 
+id: 1
+nom: nom
+prenom: pre
+cin: 143
+num: 2834
+idtache: 11
+email: EMAIL
+password: PWD
+date: Wednesday 27 April 2022 01:13:10.408
+************************ 
+id: 1
+nom: nom
+prenom: pre
+cin: 143
+num: 2834
+idtache: 11
+email: email
+password: PWD
+date: Wednesday 27 April 2022 01:13:17.903
+************************ 
+id: 1
+nom: nom
+prenom: pre
+cin: 143
+num: 2834
+idtache: 11
+email: email
+password: pwd
+date: Wednesday 27 April 2022 01:13:26.544
+************************ 
+id: 2
+nom: nom
+prenom: pre
+cin: 143
+num: 2834
+idtache: 11
+email: email
+password: pwd
+date: Wednesday 27 April 2022 01:13:43.298
+************************ 

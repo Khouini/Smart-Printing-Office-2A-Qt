@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2699,7 +2699,7 @@
                               </size>
                              </property>
                              <property name="text">
-                              <string>Adresse</string>
+                              <string>Email: </string>
                              </property>
                             </widget>
                            </item>
@@ -2723,7 +2723,7 @@
                            <item>
                             <widget class="QLabel" name="label_13A">
                              <property name="text">
-                              <string>Email</string>
+                              <string>Adresse: </string>
                              </property>
                             </widget>
                            </item>
