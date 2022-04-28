@@ -93,12 +93,6 @@ QSqlQueryModel * produit::afficher()
 
     QSqlQueryModel * model=new QSqlQueryModel() ;
     model->setQuery("select * from produit ") ;
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_produit")) ;
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_produit")) ;
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("reference_produit")) ;
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("type")) ;
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("marque")) ;
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("qte")) ;
     return model ;
 
 }
@@ -129,11 +123,6 @@ QSqlQueryModel * produit :: trie_produitN()
     QSqlQueryModel *model=new QSqlQueryModel();
 
     model->setQuery("select * from produit order by nom_produit DESC" );
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_produit")) ;
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_produit")) ;
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("reference_produit")) ;
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("type")) ;
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("marque")) ;
     return model ;
 
 
@@ -143,11 +132,6 @@ QSqlQueryModel * produit:: trie_produitQ()
 {
     QSqlQueryModel *model=new QSqlQueryModel();
     model->setQuery("select * from produit order by id_produit" );
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_produit")) ;
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("nom_produit")) ;
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("reference_produit")) ;
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("type")) ;
-    model->setHeaderData(4,Qt::Horizontal,QObject::tr("marque")) ;
     return model ;
 
 }
@@ -156,12 +140,6 @@ QSqlQueryModel * produit::recherche(QString rech)
 {
     QSqlQueryModel * model = new QSqlQueryModel();
     model->setQuery("select * from produit where id_produit LIKE '%"+rech+"%'");
-    model->setHeaderData(0,Qt::Horizontal, QObject::tr("id_produit"));
-    model->setHeaderData(1,Qt::Horizontal, QObject::tr("nom_produit"));
-    model->setHeaderData(2,Qt::Horizontal, QObject::tr("reference_produit"));
-    model->setHeaderData(3,Qt::Horizontal, QObject::tr("type"));
-    model->setHeaderData(4,Qt::Horizontal, QObject::tr("marque"));
-
     return  model ;
 
  }

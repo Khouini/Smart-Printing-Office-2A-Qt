@@ -56,6 +56,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QSqlQueryModel * afficher();
+    QSqlQueryModel * afficherCB();
 private slots:
     void on_pushButtonSeConnecter_clicked();
 
@@ -315,6 +317,18 @@ void on_pushButton_Actualiser_F_clicked();
     void on_pushButton_employe_clicked();
 
     void on_pushButton_codepromo_clicked();
+    void on_pushButtonAJOUTERYY_clicked();
+
+
+    void on_pushButtonYcommande_clicked();
+
+    void on_pushButton_MODIFIERYYY_clicked();
+
+    void on_tableViewYCOMMANDE_activated(const QModelIndex &index);
+
+    void on_pushButton_suppYY_clicked();
+
+    void on_pushButton_qrstock_clicked();
 
 signals:
 void setCenter(QVariant, QVariant);

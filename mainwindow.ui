@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1065</width>
+    <width>1246</width>
     <height>619</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>9</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -114,7 +114,7 @@
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout">
                  <item>
-                  <widget class="QLabel" name="label">
+                  <widget class="QLabel" name="label_11111">
                    <property name="text">
                     <string>Nom d'utilisateur: </string>
                    </property>
@@ -548,7 +548,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="currentIndex">
-           <number>4</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
@@ -1556,7 +1556,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidgetC">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="widget">
            <attribute name="title">
@@ -1942,6 +1942,223 @@
            <attribute name="title">
             <string>Gestion des commandes</string>
            </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_119">
+            <item>
+             <widget class="QGroupBox" name="groupBox_49">
+              <property name="title">
+               <string>Affichage</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_118">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_107">
+                 <item>
+                  <widget class="QTableView" name="tableViewYCOMMANDE"/>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonYcommande">
+                   <property name="text">
+                    <string>Actualiser</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_94">
+              <item>
+               <widget class="QGroupBox" name="groupBox_47">
+                <property name="title">
+                 <string>Ajout/Modification</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_95">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_114">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_96">
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_115">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_97">
+                         <item>
+                          <widget class="QLabel" name="label">
+                           <property name="text">
+                            <string>ID Produit</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEditIDYPRODUIT"/>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_98">
+                         <item>
+                          <widget class="QLabel" name="label_47">
+                           <property name="text">
+                            <string>Quantité produit</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEditYQTEY"/>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_99">
+                         <item>
+                          <widget class="QLabel" name="label_48">
+                           <property name="text">
+                            <string>Date Achat</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEditYDATEY"/>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_100">
+                         <item>
+                          <widget class="QLabel" name="label_49">
+                           <property name="text">
+                            <string>Prix unicitaire: </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEditYprixY"/>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_116">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_101">
+                         <item>
+                          <widget class="QLabel" name="label_50">
+                           <property name="text">
+                            <string>ID client: </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEditIDCLIENTY"/>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_102">
+                         <item>
+                          <widget class="QLabel" name="label_51">
+                           <property name="text">
+                            <string>Numéro compte: </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEdit_NCOMPTEY"/>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_103">
+                         <item>
+                          <widget class="QLabel" name="label_52">
+                           <property name="text">
+                            <string>Piéce Justificative: </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEditPJY"/>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_104">
+                         <item>
+                          <widget class="QLabel" name="label_53">
+                           <property name="text">
+                            <string>Totale: </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEditTOTALY"/>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_105">
+                     <item>
+                      <widget class="QPushButton" name="pushButtonAJOUTERYY">
+                       <property name="text">
+                        <string>Ajouter</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_MODIFIERYYY">
+                       <property name="text">
+                        <string>Modifier</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="comboBoxmodifiiiii"/>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_48">
+                <property name="title">
+                 <string>Suppression</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_117">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_106">
+                   <item>
+                    <widget class="QLabel" name="label_54">
+                     <property name="text">
+                      <string>ID commande: </string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBoxSuppression"/>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_suppYY">
+                   <property name="text">
+                    <string>Siupprimer</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -3206,7 +3423,7 @@
                 <widget class="QTableView" name="tableViewb"/>
                </item>
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_103">
+                <layout class="QVBoxLayout" name="verticalLayout_120">
                  <item>
                   <widget class="QPushButton" name="pushButton_4b">
                    <property name="text">
@@ -3233,6 +3450,29 @@
                    <property name="text">
                     <string>verifer stock</string>
                    </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_50">
+                   <property name="title">
+                    <string>QRcode</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_103">
+                    <item>
+                     <widget class="QLabel" name="qr_code_stock">
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_qrstock">
+                      <property name="text">
+                       <string>Afficher</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                 </layout>
@@ -3547,7 +3787,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1065</width>
+     <width>1246</width>
      <height>21</height>
     </rect>
    </property>

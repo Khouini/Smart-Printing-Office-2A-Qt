@@ -94,6 +94,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->type->setValidator(valiNom);
     //END MAKRAM
+    ui->tableViewYCOMMANDE->setModel(afficher());
+    ui->comboBoxSuppression->setModel(afficher());
+    ui->comboBoxmodifiiiii->setModel(afficher());
 }
 
 MainWindow::~MainWindow()
@@ -475,7 +478,7 @@ void MainWindow::on_pushButton_afficher_PJ_clicked()
     if (query.exec()){
         while (query.next()){
             fichier_PJ = query.value(0).toString();
-            X = "D:\\Documents\\GitHub\\Gestion-Fiance-Qt\\PJ\\"+fichier_PJ ;
+            X = "D:/Documents/GitHub/IntegrationQt/PJ/"+fichier_PJ ;
             QFile file (X);
             if(!file.open(QIODevice::ReadOnly)){
                 QMessageBox::information(0, "info", file.errorString());
@@ -701,7 +704,7 @@ void MainWindow::on_pushButton_mail_pj_clicked()
     if (query.exec()){
         while (query.next()){
             fichier_PJ = query.value(0).toString();
-            X = "D:\\Documents\\GitHub\\Gestion-Fiance-Qt\\PJ\\"+fichier_PJ ;
+            X = "D:/Documents/GitHub/IntegrationQt/PJ/"+fichier_PJ ;
             QFile file (X);
             if(!file.open(QIODevice::ReadOnly)){
                 QMessageBox::information(0, "info", file.errorString());
@@ -2477,4 +2480,153 @@ void MainWindow::on_pushButton_codepromo_clicked()
         }else{
         QMessageBox::critical(this, tr("Error::"), query.lastError().text());
     }
+}
+void MainWindow::on_pushButtonAJOUTERYY_clicked()
+{
+    QString id_produit = ui->lineEditIDYPRODUIT->text();
+    QString QTE = ui->lineEditYQTEY->text();
+    QString date = ui->lineEditYDATEY->text();
+    QString prix = ui->lineEditYprixY->text();
+    QString id_client =  ui->lineEditIDCLIENTY->text();
+    QString n_compte = ui->lineEdit_NCOMPTEY->text();
+    QString PJ = ui->lineEditPJY->text();
+    QString total = ui->lineEditTOTALY->text();
+    QSqlQuery query;
+    query.prepare("insert into commandes values (COMMANDES_SEQ.nextval, "+id_produit+", "+QTE+", '"+date+"', "+prix+", "+id_client+", "+n_compte+", '"+PJ+"', "+total+")");
+    if (query.exec()){
+        ui->tableViewYCOMMANDE->setModel(afficher());
+        ui->comboBoxSuppression->setModel(afficher());
+        ui->comboBoxmodifiiiii->setModel(afficher());
+            QMessageBox::information(nullptr, QObject::tr("Database is open"),
+                                  QObject::tr("Ajout effectué"),
+                                  QMessageBox::Ok
+                                  );
+        }else{
+        QMessageBox::critical(this, tr("Error::"), query.lastError().text());
+    }
+}
+QSqlQueryModel * MainWindow::afficher(){
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select * from COMMANDES ");
+    return model;
+}
+QSqlQueryModel * MainWindow::afficherCB(){
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select id_commande from COMMANDES ");
+    return model;
+}
+
+void MainWindow::on_pushButtonYcommande_clicked()
+{
+    ui->tableViewYCOMMANDE->setModel(afficher());
+    ui->comboBoxSuppression->setModel(afficher());
+    ui->comboBoxmodifiiiii->setModel(afficher());
+}
+
+void MainWindow::on_pushButton_MODIFIERYYY_clicked()
+{
+    QString id_coomande = ui->comboBoxmodifiiiii->currentText();
+    QString id_produit = ui->lineEditIDYPRODUIT->text();
+    QString QTE = ui->lineEditYQTEY->text();
+    QString date = ui->lineEditYDATEY->text();
+    QString prix = ui->lineEditYprixY->text();
+    QString id_client =  ui->lineEditIDCLIENTY->text();
+    QString n_compte = ui->lineEdit_NCOMPTEY->text();
+    QString PJ = ui->lineEditPJY->text();
+    QString total = ui->lineEditTOTALY->text();
+    QSqlQuery query;
+    query.prepare("update commandes set id_produit = "+id_produit+", quantite_produit =  "+QTE+", date_achat_produit = '"+date+"', prix_produit =  "+prix+", id_client =  "+id_client+", n_compte =  "+n_compte+", pj =  '"+PJ+"', total =  "+total+" where id_commande like "+id_coomande+" ");
+    if (query.exec()){
+            ui->tableViewYCOMMANDE->setModel(afficher());
+            QMessageBox::information(nullptr, QObject::tr("Database is open"),
+                                  QObject::tr("Modification effectué"),
+                                  QMessageBox::Ok
+                                  );
+        }else{
+        QMessageBox::critical(this, tr("Error::"), query.lastError().text());
+    }
+}
+
+void MainWindow::on_tableViewYCOMMANDE_activated(const QModelIndex &index)
+{
+    QString id=ui->tableViewYCOMMANDE->model()->data(index).toString();
+    QSqlQuery query  ;
+    query.prepare("select * from COMMANDES  where (ID_commande LIKE '"+id+"')");
+    if (query.exec())
+    {
+        while (query.next()) {
+            ui->comboBoxmodifiiiii->setCurrentText(query.value(0).toString()) ;
+            ui->comboBoxSuppression->setCurrentText(query.value(0).toString()) ;
+            ui->lineEditIDYPRODUIT->setText(query.value(1).toString()) ;
+            ui->lineEditYQTEY->setText(query.value(2).toString()) ;
+            ui->lineEditYDATEY->setText(query.value(3).toString()) ;
+            ui->lineEditYprixY->setText(query.value(4).toString()) ;
+            ui->lineEditIDCLIENTY->setText(query.value(5).toString()) ;
+            ui->lineEdit_NCOMPTEY->setText(query.value(6).toString()) ;
+            ui->lineEditPJY->setText(query.value(7).toString()) ;
+            ui->lineEditTOTALY->setText(query.value(8).toString()) ;
+        }
+    }
+        else {
+             QMessageBox::critical(this,tr("error::"),query.lastError().text()) ;
+        }
+}
+
+void MainWindow::on_pushButton_suppYY_clicked()
+{
+    QString id = ui->comboBoxSuppression->currentText();
+    QSqlQuery query;
+    query.prepare("delete from COMMANDES where id_commande = "+id+"");
+    if (query.exec()){
+        ui->tableViewYCOMMANDE->setModel(afficher());
+        ui->comboBoxSuppression->setModel(afficher());
+        ui->comboBoxmodifiiiii->setModel(afficher());
+            QMessageBox::information(nullptr, QObject::tr("Database is open"),
+                                  QObject::tr("Suppression effectué"),
+                                  QMessageBox::Ok
+                                  );
+        }else{
+        QMessageBox::critical(this, tr("Error::"), query.lastError().text());
+    }
+}
+
+void MainWindow::on_pushButton_qrstock_clicked()
+{
+    int tabeq=ui->tableViewb->currentIndex().row();
+        QVariant idd=ui->tableViewb->model()->data(ui->tableViewb->model()->index(tabeq,0));
+        QString id=idd.toString();
+        // QString code=idd.toSTring();
+        QSqlQuery qry;
+        qry.prepare("select * from produit where id_produit=:id");
+        qry.bindValue(":id",id);
+        qry.exec();
+         QString id_p, nom_produit, ref_produit, marque , type , qte;//attributs
+        while(qry.next()){
+           id_p=qry.value(0).toString();
+           nom_produit=qry.value(1).toString();
+            ref_produit=qry.value(2).toString();
+           marque=qry.value(3).toString();
+            type=qry.value(4).toString();
+            qte=qry.value(5).toString();
+        }
+        id=QString(id);
+      id= "ID_prouit: " +id_p+ " | nom_produit :" +nom_produit+ " | reference_produit: " +ref_produit+ " | marque_produit: " +marque+ " | type_produit: "+type+" | quantite_produit: " +qte;
+        QrCode qr = QrCode::encodeText(id.toUtf8().constData(), QrCode::Ecc::HIGH);
+        // Read the black & white pixels
+        QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+        for (int y = 0; y < qr.getSize(); y++) {
+            for (int x = 0; x < qr.getSize(); x++) {
+                int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+                // You need to modify this part
+                if(color==0)
+                    im.setPixel(x, y,qRgb(254, 254, 254));
+                else
+                    im.setPixel(x, y,qRgb(0, 0, 0));
+            }
+        }
+        im=im.scaled(200,200);
+
+
+          ui->qr_code_stock->setPixmap(QPixmap::fromImage(im));
 }
