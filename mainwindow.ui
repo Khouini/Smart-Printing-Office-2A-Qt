@@ -108,7 +108,7 @@
             <item>
              <widget class="QGroupBox" name="groupBox">
               <property name="title">
-               <string>Login</string>
+               <string>Connexion:</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout">
                <item>
@@ -116,7 +116,7 @@
                  <item>
                   <widget class="QLabel" name="label">
                    <property name="text">
-                    <string>Username: </string>
+                    <string>Nom d'utilisateur: </string>
                    </property>
                   </widget>
                  </item>
@@ -347,7 +347,7 @@
                 <item>
                  <widget class="QPushButton" name="pushButton_cht">
                   <property name="text">
-                   <string>Chatbox</string>
+                   <string>Boîte de discussion</string>
                   </property>
                  </widget>
                 </item>
@@ -453,7 +453,7 @@
                <item>
                 <widget class="QLabel" name="label_5">
                  <property name="text">
-                  <string>Username: </string>
+                  <string>Nom d'utilisateur:  </string>
                  </property>
                 </widget>
                </item>
@@ -532,7 +532,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_cht_2">
             <property name="text">
-             <string>Chatbox</string>
+             <string>Boîte de discussion</string>
             </property>
            </widget>
           </item>
@@ -548,7 +548,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="currentIndex">
-           <number>2</number>
+           <number>4</number>
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
@@ -1540,7 +1540,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_cht_3">
             <property name="text">
-             <string>Chatbox</string>
+             <string>Boîte de discussion</string>
             </property>
            </widget>
           </item>
@@ -1618,7 +1618,7 @@
                      <item>
                       <widget class="QGroupBox" name="groupBox_22">
                        <property name="title">
-                        <string>Sexe</string>
+                        <string>Sexe :</string>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_56">
                         <item>
@@ -1697,7 +1697,7 @@
                      <item>
                       <widget class="QGroupBox" name="groupBox_23">
                        <property name="title">
-                        <string>Type</string>
+                        <string>Type: </string>
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_59">
                         <item>
@@ -1774,7 +1774,7 @@
                    <item>
                     <widget class="QPushButton" name="pushButton_chercherC">
                      <property name="text">
-                      <string>chercher</string>
+                      <string>Chercher</string>
                      </property>
                     </widget>
                    </item>
@@ -1860,7 +1860,7 @@
                      <item>
                       <widget class="QPushButton" name="pushButton_supprimerC">
                        <property name="text">
-                        <string>supprimer</string>
+                        <string>Supprimer</string>
                        </property>
                       </widget>
                      </item>
@@ -1917,7 +1917,7 @@
                     <item>
                      <widget class="QPushButton" name="pushButton_historiqueC">
                       <property name="text">
-                       <string>Check historique</string>
+                       <string>Voir historique</string>
                       </property>
                      </widget>
                     </item>
@@ -1965,7 +1965,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_cht_4">
             <property name="text">
-             <string>Chatbox</string>
+             <string>Boîte de discussion</string>
             </property>
            </widget>
           </item>
@@ -2355,7 +2355,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_cht_5">
             <property name="text">
-             <string>Chatbox</string>
+             <string>Boîte de discussion</string>
             </property>
            </widget>
           </item>
@@ -2608,7 +2608,7 @@
                     <item row="2" column="0">
                      <widget class="QLabel" name="label_37">
                       <property name="text">
-                       <string>Password</string>
+                       <string>Mot de passe: </string>
                       </property>
                      </widget>
                     </item>
@@ -2667,7 +2667,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_cht_6">
             <property name="text">
-             <string>Chatbox</string>
+             <string>Boîte de discussion</string>
             </property>
            </widget>
           </item>
@@ -2711,7 +2711,7 @@
                  <item>
                   <widget class="QPushButton" name="pushButton_7A">
                    <property name="text">
-                    <string>check pdf</string>
+                    <string>Voir pdf</string>
                    </property>
                   </widget>
                  </item>
@@ -3173,7 +3173,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_chatboxxxZE">
             <property name="text">
-             <string>Charbox</string>
+             <string>Boîte de discussion</string>
             </property>
            </widget>
           </item>

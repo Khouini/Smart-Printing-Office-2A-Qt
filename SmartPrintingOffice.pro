@@ -62,4 +62,5 @@ DISTFILES += \
     Quicksand-SemiBold.ttf
 
 RESOURCES += \
-    qml.qrc
+    qml.qrc \
+    trasnlations.qrc

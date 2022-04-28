@@ -1,10 +1,22 @@
 #include "mainwindow.h"
-
+#include <QTranslator>
 #include <QApplication>
+#include <QInputDialog>
 
 int main(int argc, char *argv[])
 {
+
     QApplication a(argc, argv);
+    QTranslator t;
+    QStringList languages;
+    languages << "French" << "English";
+    QString lang = QInputDialog::getItem(NULL, "Select language", "Language", languages);
+    if(lang == "English"){
+        t.load(":/english.qm");
+    }
+    if (lang != "French"){
+        a.installTranslator(&t);
+    }
     // theme
    /* QFile styleSheetFile("D:\\Documents\\GitHub\\Gestion-Fiance-Qt\\stylesheet\\Darkeum.qss");
     styleSheetFile.open(QFile::ReadOnly);
