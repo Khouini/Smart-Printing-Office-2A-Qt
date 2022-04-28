@@ -53,3 +53,14 @@ sexe: Femme
 type_client: Fidele
 date: Wednesday 27 April 2022 15:45:39.967
 ************************ 
+
+Operation effectuée:  modification
+ID: 3
+CIN: 45
+Nom: AZ
+Prenom: A
+Email: fez@gmail.com
+sexe: Femme
+type_client: VIP
+date: Thursday 28 April 2022 05:02:08.993
+************************ 

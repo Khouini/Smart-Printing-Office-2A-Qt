@@ -2630,3 +2630,49 @@ void MainWindow::on_pushButton_qrstock_clicked()
 
           ui->qr_code_stock->setPixmap(QPixmap::fromImage(im));
 }
+
+void MainWindow::on_pushButton_qrcod_commande_clicked()
+{
+    int tabeq=ui->tableViewYCOMMANDE->currentIndex().row();
+        QVariant idd=ui->tableViewYCOMMANDE->model()->data(ui->tableViewYCOMMANDE->model()->index(tabeq,0));
+        QString id=idd.toString();
+        // QString code=idd.toSTring();
+        QSqlQuery qry;
+        qry.prepare("select * from COMMANDES where ID_COMMANDE=:id");
+        qry.bindValue(":id",id);
+        qry.exec();
+         QString idc, id_p, qte, produit, TOTAL, id_c , date , N_COMPTE,PJ,Prix_P;//attributs
+        while(qry.next()){
+           idc=qry.value(0).toString();
+           id_p=qry.value(1).toString();
+           qte=qry.value(2).toString();
+            date=qry.value(3).toString();
+           Prix_P=qry.value(4).toString();
+            id_c=qry.value(5).toString();
+            N_COMPTE=qry.value(6).toString();
+            PJ=qry.value(7).toString();
+            TOTAL=qry.value(8).toString();
+        }
+        id=QString(id);
+      id= "ID_Commande: " +idc+ " | ID_PRODUIT :" +id_p+ " | QUANTITE_PRODUIT : " +qte+ " | DATE_ACHAT_PRODUIT: " +date+ " | TOTAL_commande: " +TOTAL+ " | ID_CLIENT: " +id_c+
+        " | Num_COMPTE: " +N_COMPTE+ " | Piece_justificatif: " +PJ+ " | PRIX_PRODUIT: " +Prix_P;
+        QrCode qr = QrCode::encodeText(id.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+        // Read the black & white pixels
+        QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+        for (int y = 0; y < qr.getSize(); y++) {
+            for (int x = 0; x < qr.getSize(); x++) {
+                int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+                // You need to modify this part
+                if(color==0)
+                    im.setPixel(x, y,qRgb(254, 254, 254));
+                else
+                    im.setPixel(x, y,qRgb(0, 0, 0));
+            }
+        }
+        im=im.scaled(200,200);
+
+
+          ui->qr_code_commandea->setPixmap(QPixmap::fromImage(im));
+}
