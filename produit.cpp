@@ -144,7 +144,7 @@ QSqlQueryModel * produit::recherche(QString rech)
 
  }
 void produit::save(int id_produit,QString nom_produit ,QString reference_produit, QString type,QString marque,QString qte)
-{    QFile file ("C:/Users/dell/Desktop/stock/histo.txt");
+{    QFile file ("D:/Documents/GitHub/IntegrationQt/Historique/historiqueProduits.txt");
      if (!file.open(QIODevice::WriteOnly|QIODevice::Append | QIODevice::Text))
       qDebug()<<"erreur";
      QTextStream out(&file);
@@ -164,7 +164,7 @@ void produit::save(int id_produit,QString nom_produit ,QString reference_produit
 }
 QString produit::load()
 {   QString tmp="";
-    QFile file("C:/Users/dell/Desktop/stock/histo.txt");
+    QFile file("D:/Documents/GitHub/IntegrationQt/Historique/historiqueProduits.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
       tmp="";
 

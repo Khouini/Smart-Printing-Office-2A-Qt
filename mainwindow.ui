@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -227,7 +227,7 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>17</width>
+            <width>14</width>
             <height>162</height>
            </size>
           </property>
@@ -253,29 +253,9 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_RetourPC22">
-            <property name="text">
-             <string>Retour Page connexion</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_23">
+           <layout class="QHBoxLayout" name="horizontalLayout_115">
             <item>
-             <spacer name="horizontalSpacer_11">
+             <spacer name="horizontalSpacer_8">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -288,75 +268,14 @@
              </spacer>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_17">
-              <item>
-               <widget class="QPushButton" name="pushButton_ENR">
-                <property name="text">
-                 <string>Enregistrement des compte</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_21">
-                <item>
-                 <widget class="QPushButton" name="pushButton_GF">
-                  <property name="text">
-                   <string>Gestion de finance</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_GC">
-                  <property name="text">
-                   <string>Gestion des clients</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_GM">
-                  <property name="text">
-                   <string>Gestion de maintenance</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_22">
-                <item>
-                 <widget class="QPushButton" name="pushButton_GF_2">
-                  <property name="text">
-                   <string>Gestion de fournisseurs</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_GE">
-                  <property name="text">
-                   <string>Gestion des employées</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_GS">
-                  <property name="text">
-                   <string>Gestion de stock</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_cht">
-                  <property name="text">
-                   <string>Boîte de discussion</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
+             <widget class="QPushButton" name="pushButton_RetourPC22">
+              <property name="text">
+               <string>Retour Page connexion</string>
+              </property>
+             </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_12">
+             <spacer name="horizontalSpacer_9">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -371,7 +290,7 @@
            </layout>
           </item>
           <item>
-           <spacer name="verticalSpacer_7">
+           <spacer name="verticalSpacer_4">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
@@ -384,6 +303,117 @@
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_23">
+          <item>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_17">
+            <item>
+             <widget class="QPushButton" name="pushButton_ENR">
+              <property name="text">
+               <string>Enregistrement des compte</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_21">
+              <item>
+               <widget class="QPushButton" name="pushButton_GF">
+                <property name="text">
+                 <string>Gestion de finance</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_GC">
+                <property name="text">
+                 <string>Gestion des clients</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_GM">
+                <property name="text">
+                 <string>Gestion de maintenance</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_22">
+              <item>
+               <widget class="QPushButton" name="pushButton_GF_2">
+                <property name="text">
+                 <string>Gestion de fournisseurs</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_GE">
+                <property name="text">
+                 <string>Gestion des employées</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_GS">
+                <property name="text">
+                 <string>Gestion de stock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_cht">
+                <property name="text">
+                 <string>Boîte de discussion</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_12">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>218</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
@@ -604,7 +634,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="currentIndex">
-           <number>5</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
@@ -1686,7 +1716,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidgetC">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="widget">
            <attribute name="title">
@@ -2382,7 +2412,7 @@
         <item>
          <widget class="QTabWidget" name="histo">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_8">
            <attribute name="title">

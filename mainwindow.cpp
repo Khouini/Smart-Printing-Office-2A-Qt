@@ -174,6 +174,7 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
                                           QObject::tr("Connecté"),
                                           QMessageBox::Ok
                                           );
+                counter_failed=0;
                 if (role=="ADMIN"){
                     ui->stackedWidget->setCurrentIndex(1);
                 }else if (role=="FINANCE"){
@@ -2055,7 +2056,7 @@ void MainWindow::on_pushButton_5_clicked()
 
 void MainWindow::on_pushButtonb_clicked()
 {
-    QString link="file:///C:/Users/dell/Desktop/stock/histo.txt";
+    QString link="file:///D:/Documents/GitHub/IntegrationQt/Historique/historiqueProduits.txt";
     QDesktopServices::openUrl(QUrl(link));
 }
 
