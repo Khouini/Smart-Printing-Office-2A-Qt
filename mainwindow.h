@@ -348,6 +348,10 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_entrerA_clicked();
 
+    void on_pushButtonbO_clicked();
+
+    void on_pushButtonb_2O_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);
@@ -369,6 +373,7 @@ private:
     QString datao;
     Arduino A; // objet temporaire
     arduinoDB ADB;
+
 
 
 

@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -2326,7 +2326,7 @@
         <item>
          <widget class="QTabWidget" name="histo">
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_8">
            <attribute name="title">
@@ -2679,6 +2679,37 @@
                <string>Actualiser</string>
               </property>
              </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_16">
+           <attribute name="title">
+            <string>Arduino</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_126">
+            <item>
+             <widget class="QTextEdit" name="textEditbO"/>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_111">
+              <item>
+               <widget class="QLineEdit" name="lineEditbO"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonbO">
+                <property name="text">
+                 <string>sortir</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonb_2O">
+                <property name="text">
+                 <string>entrer</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
