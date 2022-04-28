@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>5</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -388,7 +388,7 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_3">
-       <layout class="QVBoxLayout" name="verticalLayout_10">
+       <layout class="QVBoxLayout" name="verticalLayout_128">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_25">
           <item>
@@ -408,39 +408,95 @@
          </layout>
         </item>
         <item>
-         <widget class="QTableView" name="tableViewUP"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_114">
+          <item>
+           <widget class="QTableView" name="tableViewUP"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_actualiseradmin">
+            <property name="text">
+             <string>Actualiser</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <layout class="QHBoxLayout" name="horizontalLayout_113">
           <item>
-           <widget class="QGroupBox" name="groupBox_8">
-            <property name="title">
-             <string>Suppression:</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_20">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_24">
+           <layout class="QVBoxLayout" name="verticalLayout_127">
+            <item>
+             <widget class="QGroupBox" name="groupBox_8">
+              <property name="title">
+               <string>Suppression:</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_20">
                <item>
-                <widget class="QLabel" name="label_15">
+                <layout class="QHBoxLayout" name="horizontalLayout_24">
+                 <item>
+                  <widget class="QLabel" name="label_15">
+                   <property name="text">
+                    <string>ID: </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_Username_UP_sup"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_supp_up">
                  <property name="text">
-                  <string>ID: </string>
+                  <string>Supprimer</string>
                  </property>
                 </widget>
                </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox_52">
+              <property name="title">
+               <string>Blocage/ Déblocage</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_10">
                <item>
-                <widget class="QLineEdit" name="lineEdit_Username_UP_sup"/>
+                <layout class="QHBoxLayout" name="horizontalLayout_112">
+                 <item>
+                  <widget class="QLabel" name="label_56">
+                   <property name="text">
+                    <string>ID: </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_idbloc"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                 <item>
+                  <widget class="QPushButton" name="pushButton_bloquer">
+                   <property name="text">
+                    <string>Bloquer</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_debloquer">
+                   <property name="text">
+                    <string>Débloquer</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
               </layout>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_supp_up">
-               <property name="text">
-                <string>Supprimer</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <widget class="QGroupBox" name="groupBox_4">

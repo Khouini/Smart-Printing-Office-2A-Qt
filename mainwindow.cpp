@@ -121,7 +121,7 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
     QString UserName = ui->lineEdit_Username->text();
     QString Password = ui->lineEdit_Password->text();
     QSqlQuery querry;
-    querry.prepare("SELECT TYPE_USER, USERNAME FROM USERS WHERE USERNAME = '"+UserName+"' AND PASSWORD_USER = '"+Password+"'");
+    querry.prepare("SELECT TYPE_USER, USERNAME, ACTIVE FROM USERS WHERE USERNAME = '"+UserName+"' AND PASSWORD_USER = '"+Password+"'");
     //querry.bindValue(":username", UserName);
     //querry.bindValue(":password", Password);
     if (querry.exec()){
@@ -130,6 +130,7 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
                 counter++;
                 role = querry.value(0).toString();
                 nickname = querry.value(1).toString();
+                active = querry.value(2).toString();
             }
             ui->lineEditidNickname->setText(nickname);
             //Affichage chat
@@ -151,11 +152,24 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
                 QMessageBox::critical(this, tr("Error::"), querySelect.lastError().text());
             }
             // end affichage chat
-            if (counter<1)
+            if (counter<1){
                 QMessageBox::critical(this, tr("Error::"), "Compte n'existe pas");
+                counter_failed++;
+                if (counter_failed==3){
+                    querry.prepare("update users set active = 0 where username like '"+UserName+"'");
+                    if (querry.exec()){
+                        //QString txt = "Votre compte " + UserName + " est bloqué";
+                        QMessageBox::critical(this, tr("Blocage::"), "Blocage de votre compte");
+                        counter_failed=0;
+                    }else{
+                        QMessageBox::critical(this, tr("Error::"), querySelect.lastError().text());
+                    }
+                }
+            }
 
 
-            if (counter==1){
+
+            if ((counter==1)&&(active=="1")){
                 QMessageBox::information(nullptr, QObject::tr("Database Open"),
                                           QObject::tr("Connecté"),
                                           QMessageBox::Ok
@@ -176,6 +190,8 @@ void MainWindow::on_pushButtonSeConnecter_clicked()
                     ui->stackedWidget->setCurrentIndex(8);
                 }
 
+            }else if ((counter==1)&&(active=="0")){
+                QMessageBox::critical(this, tr("Blocage::"), "Votre compte est bloqué");
             }
             if (counter >1)
                 QMessageBox::critical(this, tr("Error::"), "Duplicate");
@@ -198,7 +214,7 @@ void MainWindow::on_pushButton_14_clicked()
     QString email = ui->lineEdit_email_UP->text();
     QString role = ui->lineEdit_role_up->text();
     QSqlQuery querry;
-    querry.prepare("insert into USERS values (USERS_SEQ.nextval, '"+role+"', '"+username+"', '"+mdp+"', '"+email+"')");
+    querry.prepare("insert into USERS values (USERS_SEQ.nextval, '"+role+"', '"+username+"', '"+mdp+"', '"+email+"', 1)");
     if (querry.exec()){
         ui->tableViewUP->setModel(L.Afficher());
         QMessageBox::information(nullptr, QObject::tr("Database Open"),
@@ -2880,3 +2896,58 @@ if (querry.exec()){
 }
 
 //End arduino Fahed
+
+void MainWindow::on_pushButton_bloquer_clicked()
+{
+    QSqlQuery querry;
+    QString id = ui->lineEdit_idbloc->text();
+    querry.prepare("update users set active = 0 where id_user like "+id+"");
+    if (querry.exec()){
+        QMessageBox::information(nullptr, QObject::tr("Blocage"),
+                                  QObject::tr("Le compte est bloqué"),
+                                  QMessageBox::Ok
+                                  );
+        ui->tableViewUP->setModel(L.Afficher());
+
+    }else{
+        QMessageBox::critical(this, tr("Error::"), querry.lastError().text());
+    }
+
+}
+
+void MainWindow::on_pushButton_debloquer_clicked()
+{
+    QSqlQuery querry;
+    QString id = ui->lineEdit_idbloc->text();
+    querry.prepare("update users set active = 1 where id_user like "+id+"");
+    if (querry.exec()){
+        QMessageBox::information(nullptr, QObject::tr("Déblocage"),
+                                  QObject::tr("Le compte est débloqué"),
+                                  QMessageBox::Ok
+                                  );
+        ui->tableViewUP->setModel(L.Afficher());
+
+    }else{
+        QMessageBox::critical(this, tr("Error::"), querry.lastError().text());
+    }
+}
+
+void MainWindow::on_pushButton_actualiseradmin_clicked()
+{
+    ui->tableViewUP->setModel(L.Afficher());
+}
+
+void MainWindow::on_tableViewUP_activated(const QModelIndex &index)
+{
+    QString val = ui->tableViewUP->model()->data(index).toString();
+    QSqlQuery query;
+    query.prepare("select * from users where (id_user) LIKE "+val+" ");
+    if (query.exec()){
+        while (query.next()){
+            ui->lineEdit_Username_UP_sup->setText(query.value(0).toString());
+            ui->lineEdit_idbloc->setText(query.value(0).toString());
+        }
+    }else{
+        QMessageBox::critical(this, tr("Error::"), query.lastError().text());
+    }
+}

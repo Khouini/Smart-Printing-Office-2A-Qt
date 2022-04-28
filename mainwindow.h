@@ -352,6 +352,14 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButtonb_2O_clicked();
 
+    void on_pushButton_bloquer_clicked();
+
+    void on_pushButton_debloquer_clicked();
+
+    void on_pushButton_actualiseradmin_clicked();
+
+    void on_tableViewUP_activated(const QModelIndex &index);
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);
@@ -362,7 +370,8 @@ private:
     Comptes Cmpt;
     GestionCommandes GC1;
     Historique H;
-    QString role, nickname;
+    QString role, nickname, active;
+    int counter_failed = 0;
     client Etmp ;
     Fournisseurs FRN;
     histo HF;
