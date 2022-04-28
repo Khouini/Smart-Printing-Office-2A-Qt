@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include "produit.h"
 #include <QVariant>
-
+#include "arduino.h"
+#include "arduinodb.h"
 #include "employe.h"
 #include "techniciens.h"
 #include <qrcode.h>
@@ -332,6 +333,17 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_pushButton_qrcod_commande_clicked();
 
+    void update_label();   // slot permettant la mise à jour du label état de la lampe 1,
+    // ce slot est lancé à chaque réception d'un message de Arduino
+
+
+    void on_pushButtonww_clicked();
+
+
+    void on_pushButton_2ww_clicked();
+
+    void on_actualiserww_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);
@@ -343,13 +355,16 @@ private:
     GestionCommandes GC1;
     Historique H;
     QString role, nickname;
-
     client Etmp ;
     Fournisseurs FRN;
     histo HF;
     Techniciens Etmpi ;
     employe em;
-    produit pro;
+    produit pro; 
+    QString data; // variable contenant les données reçues
+    QString datao;
+    Arduino A; // objet temporaire
+    arduinoDB ADB;
 
 
 

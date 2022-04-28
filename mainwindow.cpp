@@ -97,6 +97,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableViewYCOMMANDE->setModel(afficher());
     ui->comboBoxSuppression->setModel(afficher());
     ui->comboBoxmodifiiiii->setModel(afficher());
+    //Begin Arduino
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
+    //End Arduino
 }
 
 MainWindow::~MainWindow()
@@ -2676,3 +2689,46 @@ void MainWindow::on_pushButton_qrcod_commande_clicked()
 
           ui->qr_code_commandea->setPixmap(QPixmap::fromImage(im));
 }
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+    ui->labelww->setText(data);
+    if (data=="Gel\r\n"){
+        arduinoDB A(datao);
+        A.ajouter();
+        ui->tableViewww->setModel(ADB.afficher());
+    }
+}
+
+
+void MainWindow::on_pushButtonww_clicked()
+{
+        QString message;
+
+        if ((data.toFloat()< 100)&&(data.toFloat()>= -1)){
+            //qDebug()<< "Alert: "<< data.toFloat() << " g < 100g";
+            A.write_to_arduino("1"); //envoyer 1 à arduino
+            message ="Alert: " + data + "g < 100g";
+            QMessageBox::about(this, tr("Console"), message);
+    }else{
+            //qDebug()<< "Noo Alert: "<< data.toFloat() << " g > 100g";
+            message ="No Alert: " + data + "g > 100g";
+            QMessageBox::about(this, tr("Console"), message);
+        }
+}
+
+void MainWindow::on_pushButton_2ww_clicked()
+{
+    A.write_to_arduino("2"); //envoyer 1 à arduino
+    arduinoDB A(data);
+    A.ajouter();
+    ui->tableViewww->setModel(ADB.afficher());
+    datao = data;
+
+}
+
+void MainWindow::on_actualiserww_clicked()
+{
+    ui->tableViewww->setModel(ADB.afficher());
+}
+

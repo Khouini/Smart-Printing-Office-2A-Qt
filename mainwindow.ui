@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -548,7 +548,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="currentIndex">
-           <number>2</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
@@ -1519,6 +1519,80 @@
                <widget class="QTextEdit" name="textEdit_message_email"/>
               </item>
              </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_5">
+           <attribute name="title">
+            <string>Page</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_124">
+            <item>
+             <widget class="QTabWidget" name="tabWidget_4">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="tab_13">
+               <attribute name="title">
+                <string>Gestion de distrbution du gel désinfectant</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_122">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_108">
+                  <item>
+                   <widget class="QLabel" name="label_55">
+                    <property name="text">
+                     <string>Poids: </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="labelww">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_109">
+                  <item>
+                   <widget class="QPushButton" name="pushButtonww">
+                    <property name="text">
+                     <string>Vérifier niveau Liquide</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_2ww">
+                    <property name="text">
+                     <string>Tourner Moteur</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_14">
+               <attribute name="title">
+                <string>Historique</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_123">
+                <item>
+                 <widget class="QTableView" name="tableViewww"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="actualiserww">
+                  <property name="text">
+                   <string>Actualiser</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
             </item>
            </layout>
           </widget>
