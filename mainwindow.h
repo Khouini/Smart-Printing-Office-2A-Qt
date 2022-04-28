@@ -344,6 +344,10 @@ void on_pushButton_Actualiser_F_clicked();
 
     void on_actualiserww_clicked();
 
+    void on_pushButton_sortirA_clicked();
+
+    void on_pushButton_entrerA_clicked();
+
 signals:
 void setCenter(QVariant, QVariant);
 void addMarker(QVariant, QVariant);

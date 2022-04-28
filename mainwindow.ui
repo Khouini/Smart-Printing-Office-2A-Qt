@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1524,7 +1524,7 @@
           </widget>
           <widget class="QWidget" name="tab_5">
            <attribute name="title">
-            <string>Page</string>
+            <string>Arduino</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_124">
             <item>
@@ -1630,7 +1630,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidgetC">
           <property name="currentIndex">
-           <number>1</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="widget">
            <attribute name="title">
@@ -2251,6 +2251,37 @@
                   </widget>
                  </item>
                 </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_15">
+           <attribute name="title">
+            <string>Arduino</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_125">
+            <item>
+             <widget class="QTextEdit" name="textEditW"/>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_110">
+              <item>
+               <widget class="QLineEdit" name="lineEdit_pointeuseA"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_sortirA">
+                <property name="text">
+                 <string>sortir</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_entrerA">
+                <property name="text">
+                 <string>entrer</string>
+                </property>
                </widget>
               </item>
              </layout>

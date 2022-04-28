@@ -2693,6 +2693,8 @@ void MainWindow::update_label()
 {
     data=A.read_from_arduino();
     ui->labelww->setText(data);
+    ui->textEditW->append(data);
+
     if (data=="Gel\r\n"){
         arduinoDB A(datao);
         A.ajouter();
@@ -2731,4 +2733,75 @@ void MainWindow::on_actualiserww_clicked()
 {
     ui->tableViewww->setModel(ADB.afficher());
 }
+//Begin arduino Wahch
+void MainWindow::on_pushButton_sortirA_clicked()
+{
+    QString var;
+    QString nom = ui->lineEdit_pointeuseA->text();
+    qDebug() << nom;
 
+QSqlQuery querry;
+querry.prepare("Select ID_E from EMPLOYE where NOM like '"+nom+"' ");
+if (querry.exec()){
+    while (querry.next()){
+        qDebug() << "fonded " << querry.value(0).toString();
+        var = querry.value(0).toString();
+
+    }
+}else{
+    qDebug() << "Error";
+}
+if(var=="86 ED 2A 21")
+{
+A.write_to_arduino("1");
+}
+else if (var=="60 98 DE 2C")
+{
+    A.write_to_arduino("1");
+}
+else if (var=="4695489")
+{
+    A.write_to_arduino("1");
+}
+else
+{
+    A.write_to_arduino("3");
+}
+}
+
+void MainWindow::on_pushButton_entrerA_clicked()
+{
+    QString var;
+    QString nom = ui->lineEdit_pointeuseA->text();
+    qDebug() << nom;
+
+    QSqlQuery querry;
+    querry.prepare("Select ID_E from EMPLOYE where NOM like '"+nom+"' ");
+    if (querry.exec()){
+        while (querry.next()){
+            qDebug() << "fonded " << querry.value(0).toString();
+            var = querry.value(0).toString();
+
+        }
+    }else{
+        qDebug() << "Error";
+    }
+        if(var=="86 ED 2A 21")
+        {
+        A.write_to_arduino("2");
+        }
+        else if (var=="60 98 DE 2C")
+        {
+            A.write_to_arduino("2");
+        }
+        else if (var=="4695489")
+        {
+            A.write_to_arduino("2");
+        }
+        else
+        {
+            A.write_to_arduino("3");
+        }
+}
+
+//End arduino wahch
