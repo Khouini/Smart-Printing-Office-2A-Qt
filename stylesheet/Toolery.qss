@@ -142,6 +142,9 @@ QLineEdit
 	padding: 5px;
 
 }
+QTextEdit{
+	font-size: 14px;
+}
 
 
 /*-----QListView-----*/

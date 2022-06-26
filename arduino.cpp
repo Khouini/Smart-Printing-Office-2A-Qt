@@ -30,7 +30,7 @@ int Arduino::connect_arduino()
         qDebug() << "arduino_port_name is :" << arduino_port_name;
         if(arduino_is_available){ // configuration de la communication ( débit...)
             serial->setPortName(arduino_port_name);
-            if(serial->open(QSerialPort::ReadWrite)){
+            if(serial->open(QSerialPort::ReadWrite)){ //57600
                 serial->setBaudRate(QSerialPort::Baud57600); // débit : 9600 bits/s
                 serial->setDataBits(QSerialPort::Data8); //Longueur des données : 8 bits,
                 serial->setParity(QSerialPort::NoParity); //1 bit de parité optionnel

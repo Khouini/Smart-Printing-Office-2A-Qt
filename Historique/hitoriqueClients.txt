@@ -64,3 +64,36 @@ sexe: Femme
 type_client: VIP
 date: Thursday 28 April 2022 05:02:08.993
 ************************ 
+
+Operation effectuée:  modification
+ID: 1
+CIN: 1234
+Nom: KHOUINI
+Prenom: yACINE
+Email: fzez@gmail.com
+sexe: Homme
+type_client: Passager
+date: Thursday 28 April 2022 12:35:21.308
+************************ 
+
+Operation effectuée:  ajout
+ID: 7
+CIN: 1234
+Nom: KHOUINI
+Prenom: MOHAMED
+Email: fzez@gmail.com
+sexe: Homme
+type_client: Passager
+date: Thursday 28 April 2022 12:35:39.252
+************************ 
+
+Operation effectuée:  Delete
+ID: 7
+CIN: 1234
+Nom: KHOUINI
+Prenom: MOHAMED
+Email: fzez@gmail.com
+sexe: 
+type_client: 
+date: Thursday 28 April 2022 12:36:03.156
+************************ 
